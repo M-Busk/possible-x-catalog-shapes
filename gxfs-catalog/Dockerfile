@@ -1,6 +1,6 @@
 FROM maven:3-eclipse-temurin-17-alpine AS build
 
-ARG SERVICE_VERSION=9c915d7c75c48df0386228572b3051b9386d4d06
+ARG SERVICE_VERSION=a37ab257ebda35c80ccf27d65294aef8df53e4e5
 
 COPY catalog-shapes/ /catalog-shapes/
 
