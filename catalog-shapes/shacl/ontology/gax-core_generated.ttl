@@ -1,4 +1,4 @@
-@prefix gax-core: <http://w3id.org/gaia-x/core#> .
+@prefix gax-core: <https://w3id.org/gaia-x/core#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -27,33 +27,8 @@ owl:versionInfo		"22.04" ;
 vann:preferredNamespaceUri		"http://w3id.org/gaia-x/core#" ;
 vann:preferredNamespacePrefix		"gax-core" ;
 void:vocabulary 		vann:, void:, voaf:, dct: ;
-dct:modified		"2023-07-28T15:47:23+02:00"^^xsd:dateTimeStamp ;
+dct:modified		"2022-11-22T17:09:09+01:00"^^xsd:dateTimeStamp ;
 .
-
-################## 
-##Resource
-##################
-
-gax-core:Resource
-	a		 owl:Class;
-	rdfs:label		 "Resource"@en ;
-. 
-
-gax-core:aggregationOf
-	a		 owl:ObjectProperty ;
-	rdfs:label		 "aggregation of"@en ;
-	rdfs:domain		 gax-core:Resource ;
-	rdfs:range		 gax-core:Resource ;
-	rdfs:comment		 "DID of resources self-description related to the resource and that can exist independently of it." ;
-. 
-
-gax-core:operatedBy
-	a		 owl:ObjectProperty ;
-	rdfs:label		 "operated by"@en ;
-	rdfs:domain		 gax-core:Resource ;
-	rdfs:range		 gax-core:Participant ;
-	rdfs:comment		 "DID of participant self-description related to the participant, who operates this resource." ;
-. 
 
 ################## 
 ##ServiceOffering
@@ -89,6 +64,31 @@ gax-core:dependsOn
 . 
 
 ################## 
+##Resource
+##################
+
+gax-core:Resource
+	a		 owl:Class;
+	rdfs:label		 "Resource"@en ;
+. 
+
+gax-core:aggregationOf
+	a		 owl:ObjectProperty ;
+	rdfs:label		 "aggregation of"@en ;
+	rdfs:domain		 gax-core:Resource ;
+	rdfs:range		 gax-core:Resource ;
+	rdfs:comment		 "DID of resources self-description related to the resource and that can exist independently of it." ;
+. 
+
+gax-core:operatedBy
+	a		 owl:ObjectProperty ;
+	rdfs:label		 "operated by"@en ;
+	rdfs:domain		 gax-core:Resource ;
+	rdfs:range		 gax-core:Participant ;
+	rdfs:comment		 "DID of participant self-description related to the participant, who operates this resource." ;
+. 
+
+################## 
 ##Participant
 ##################
 
@@ -96,29 +96,3 @@ gax-core:Participant
 	a		 owl:Class;
 	rdfs:label		 "Participant"@en ;
 . 
-
-################## 
-##Configuration
-##################
-
-gax-core:Configuration
-	a		 owl:Class;
-	rdfs:label		 "Configuration"@en ;
-. 
-
-gax-core:name
-	a		 owl:ObjectProperty ;
-	rdfs:label		 "name"@en ;
-	rdfs:domain		 gax-core:Configuration ;
-	rdfs:range		 xsd:string ;
-	rdfs:comment		 "Name of the configuration artifact." ;
-. 
-
-gax-core:description
-	a		 owl:ObjectProperty ;
-	rdfs:label		 "description"@en ;
-	rdfs:domain		 gax-core:Configuration ;
-	rdfs:range		 xsd:string ;
-	rdfs:comment		 "A more detailed description of the configuration artifact." ;
-. 
-
