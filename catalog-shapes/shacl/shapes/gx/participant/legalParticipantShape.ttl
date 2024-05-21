@@ -19,11 +19,11 @@ merlot:MerlotLegalParticipantShape
         ],
         [
             sh:path gx:parentOrganization ;
-            sh:node gx:LegalParticipantShape ;
+            sh:nodeKind sh:IRI ;
         ],
         [
             sh:path gx:subOrganization ;
-            sh:node gx:LegalParticipantShape ;
+            sh:nodeKind sh:IRI ;
         ],
         # Address from Tagus is replaced by VCARD from Loire below
         #[

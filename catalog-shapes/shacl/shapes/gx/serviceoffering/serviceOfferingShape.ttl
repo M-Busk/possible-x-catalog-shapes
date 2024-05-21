@@ -18,7 +18,7 @@ gx:ServiceOfferingShape
             sh:description "a resolvable link to the participant self-description providing the service." ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
-            sh:node gx:LegalParticipant
+            sh:nodeKind sh:IRI ;
         ] ; # TODO add alternativePath to support all type of Participant
     sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
     sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
@@ -157,7 +157,7 @@ gx:dependsOnExists
     sh:description
         "a resolvable link to the service offering self-description related to the service and that can exist independently of it." ;
     sh:minCount 1 ;
-    sh:node gx:ServiceOfferingShape ;
+    sh:nodeKind sh:IRI ;
     sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
     sh:qualifiedMinCount 1 ;
 .
