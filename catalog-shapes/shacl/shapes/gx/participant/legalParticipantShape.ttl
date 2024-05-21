@@ -42,8 +42,7 @@ gx:LegalParticipantShape
         #    sh:order 3 ;
         #    sh:path gx:parentOrganizationOf 
         #],
-        [   sh:class vcard:Address ;
-            sh:description "The full legal address of the organization." ;
+        [   sh:description "The full legal address of the organization." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "legal address" ;
@@ -51,8 +50,7 @@ gx:LegalParticipantShape
             sh:order 1 ;
             sh:path gx:legalAddress  # prefixed with loire to avoid issues with the same path from tagus
         ],
-        [   sh:class vcard:Address ;
-            sh:description "Full physical location of the headquarter of the organization." ;
+        [   sh:description "Full physical location of the headquarter of the organization." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node vcard:Address ;
