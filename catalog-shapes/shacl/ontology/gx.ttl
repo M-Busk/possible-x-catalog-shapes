@@ -32,6 +32,18 @@ gx:ServiceOffering
 	rdfs:subClassOf	 gax-core:ServiceOffering ;
 .
 
+gx:LoireServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"LoireServiceOffering"@en ;
+	rdfs:subClassOf	 gx:LoireServiceOffering ;
+.
+
+merlot:MerlotServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"MerlotServiceOffering"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+.
+
 gx:DataResource
 	a		 		owl:Class;
 	rdfs:label		"DataResource"@en ;
