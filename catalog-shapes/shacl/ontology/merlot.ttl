@@ -19,3 +19,19 @@ merlot:MerlotServiceOffering
 	rdfs:label		"MerlotServiceOffering"@en ;
 	rdfs:subClassOf	 gx:ServiceOffering ;
 .
+
+merlot:MerlotCoopContractServiceOfferingShape
+	a		 		owl:Class;
+	rdfs:label		"MerlotCoopContractServiceOfferingShape"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+.
+
+merlot:MerlotDataDeliveryServiceOfferingShape
+	a		 		owl:Class;
+	rdfs:label		"MerlotDataDeliveryServiceOfferingShape"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+
+merlot:MerlotSaasServiceOfferingShape
+	a		 		owl:Class;
+	rdfs:label		"MerlotSaasServiceOfferingShape"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
