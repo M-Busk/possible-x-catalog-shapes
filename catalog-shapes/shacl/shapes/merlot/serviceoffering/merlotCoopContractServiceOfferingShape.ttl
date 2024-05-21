@@ -71,7 +71,7 @@ merlot:MerlotCoopContractServiceOfferingShape
             sh:name "name" ;
             sh:order 11 ;
             sh:path gx:name 
-        ],
+        ] ;
         #[   sh:datatype xsd:string ;
         #    sh:defaultValue "default:allow intent"^^xsd:string ;
         #    sh:description "Ome or more policies expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints, the policy should express a simple default: " ;
@@ -164,7 +164,7 @@ merlot:MerlotCoopContractServiceOfferingShape
                 "Option for a runtime of the Service Offering"@en ;
             sh:name "Laufzeit-Option" ;
             sh:minCount 1 ;
-            sh:node gax-validation:RuntimeShape ;
+            sh:node merlot:RuntimeShape ;
             sh:order 199 ;
             sh:path merlot:runtimeOption 
         ],

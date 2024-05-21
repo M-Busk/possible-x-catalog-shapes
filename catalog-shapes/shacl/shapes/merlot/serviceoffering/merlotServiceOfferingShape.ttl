@@ -56,7 +56,7 @@ merlot:MerlotServiceOfferingShape
             sh:minCount 1 ;
             sh:description "list of methods to export data from your user’s account out of the service" ;
             sh:node gx:DataAccountExportShape ;
-        ],
+        ] ;
     sh:property
         # Loire development
         #[   sh:description "One or more data protection regimes applying to the service offering." ;
@@ -164,7 +164,7 @@ merlot:MerlotServiceOfferingShape
                 "Option for a runtime of the Service Offering"@en ;
             sh:name "Laufzeit-Option" ;
             sh:minCount 1 ;
-            sh:node gax-validation:RuntimeShape ;
+            sh:node merlot:RuntimeShape ;
             sh:order 199 ;
             sh:path merlot:runtimeOption 
         ],
