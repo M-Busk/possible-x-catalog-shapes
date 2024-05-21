@@ -2,6 +2,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
 
 
 gx:
@@ -11,6 +12,18 @@ gx:LegalParticipant
     a               owl:Class;
     rdfs:label      "LegalParticipant"@en ;
     rdfs:subClassOf  gax-core:Participant ;
+.
+
+gx:LoireLegalParticipant
+    a               owl:Class;
+    rdfs:label      "LoireLegalParticipant"@en ;
+    rdfs:subClassOf  gx:LegalParticipant ;
+.
+
+merlot:MerlotLegalParticipant
+    a               owl:Class;
+    rdfs:label      "MerlotLegalParticipant"@en ;
+    rdfs:subClassOf  gx:LoireLegalParticipant ;
 .
 
 gx:ServiceOffering
