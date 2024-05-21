@@ -7,10 +7,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-# Tagus/Loire base
-gx:LegalParticipantShape
+merlot:MerlotLegalParticipantShape
     a sh:NodeShape ;
-    sh:targetClass gx:LegalParticipant ;
+    sh:targetClass merlot:MerlotLegalParticipant ;
     sh:property
         # Tagus base
         [
@@ -26,16 +25,17 @@ gx:LegalParticipantShape
             sh:path gx:subOrganization ;
             sh:node gx:LegalParticipantShape ;
         ],
-        [
-            sh:path gx:headquarterAddress ;
-            sh:minCount 1 ;
-            sh:node gx:PostalAddressShape ;
-        ],
-        [
-            sh:path gx:legalAddress ;
-            sh:minCount 1 ;
-            sh:node gx:PostalAddressShape ;
-        ],
+        # Address from Tagus is replaced by VCARD from Loire below
+        #[
+        #    sh:path gx:headquarterAddress ;
+        #    sh:minCount 1 ;
+        #    sh:node gx:PostalAddressShape ;
+        #],
+        #[
+        #    sh:path gx:legalAddress ;
+        #    sh:minCount 1 ;
+        #    sh:node gx:PostalAddressShape ;
+        #],
         # Loire development base
         #[   sh:class gx:LegalPerson ;
         #    sh:description "A list of resolvable links to Gaia-X Credentials of participants that this entity is a subOrganization of, if any." ;
@@ -50,7 +50,7 @@ gx:LegalParticipantShape
             sh:name "legal address" ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
-            sh:path gx:loireLegalAddress  # prefixed with loire to avoid issues with the same path from tagus
+            sh:path gx:legalAddress  # prefixed with loire to avoid issues with the same path from tagus
         ],
         [   sh:class vcard:Address ;
             sh:description "Full physical location of the headquarter of the organization." ;
@@ -58,7 +58,7 @@ gx:LegalParticipantShape
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
-            sh:path gx:loireHeadquartersAddress  ## prefixed with loire to avoid issues with the same path from tagus
+            sh:path gx:headquarterAddress  ## prefixed with loire to avoid issues with the same path from tagus
         ],
         #[   sh:class gx:LegalPerson ;
         #    sh:description "A list of resolvable links to Gaia-X Credentials of participants with a legal mandate on this entity, e.g., as a subsidiary." ;
@@ -113,7 +113,16 @@ vcard:Address a sh:NodeShape ;
             sh:description "the street address of a postal address" ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path vcard:street-address ] ;
+            sh:path vcard:street-address ],
+        # from Tagus
+        [
+            sh:path gx:countrySubdivisionCode ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:pattern "^[a-zA-Z]{2}-(?:[a-zA-Z]{1,3}|[0-9]{1,3})$" ;
+            sh:flags "i" ;
+            sh:message "an ISO 3166-2 format value is expected." ;
+        ] ;
         # gps not required from business
         #[ sh:class gx:GPSLocation ;
         #    sh:description "GPS in ISO 6709:2008/Cor 1:2009 format." ;
@@ -177,15 +186,16 @@ gx:legalRegistrationNumberShape
             ]
         ) .
 
-gx:PostalAddressShape
-    a sh:NodeShape ;
-    sh:targetClass gx:headquarterAddress, gx:legalAddress ;
-    sh:property
-        [
-            sh:path gx:countrySubdivisionCode ;
-            sh:datatype xsd:string ;
-            sh:minCount 1 ;
-            sh:pattern "^[a-zA-Z]{2}-(?:[a-zA-Z]{1,3}|[0-9]{1,3})$" ;
-            sh:flags "i" ;
-            sh:message "an ISO 3166-2 format value is expected." ;
-        ] .
+# original from Tagus, merged with VCARD Address above
+#gx:PostalAddressShape
+#    a sh:NodeShape ;
+#    sh:targetClass gx:headquarterAddress, gx:legalAddress ;
+#    sh:property
+#        [
+#            sh:path gx:countrySubdivisionCode ;
+#            sh:datatype xsd:string ;
+#            sh:minCount 1 ;
+#            sh:pattern "^[a-zA-Z]{2}-(?:[a-zA-Z]{1,3}|[0-9]{1,3})$" ;
+#            sh:flags "i" ;
+#            sh:message "an ISO 3166-2 format value is expected." ;
+#        ] .
