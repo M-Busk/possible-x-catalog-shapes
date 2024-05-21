@@ -1,0 +1,81 @@
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+merlot:MerlotServiceOfferingShape
+    a sh:NodeShape ;
+    sh:targetClass merlot:MerlotServiceOffering ;
+    sh:property
+        # MERLOT specific
+        [   skos:example "'1€ / Download'" ;
+            sh:datatype xsd:string ;
+            sh:description "Beispielkosten"@de,
+                "Example Costs"@en ;
+            sh:maxCount 1 ;
+            sh:name "Beispielkosten" ;
+            sh:order 101 ;
+            sh:path merlot:exampleCosts 
+        ],
+        [   skos:example "'1 hour(s)'" ;
+            sh:description "Option für eine Laufzeit des Serviceangebots"@de,
+                "Option for a runtime of the Service Offering"@en ;
+            sh:name "Laufzeit-Option" ;
+            sh:minCount 1 ;
+            sh:node merlot:RuntimeShape ;
+            sh:order 199 ;
+            sh:path merlot:runtimeOption 
+        ],
+        [   skos:example "'01.01.2023'" ;
+            sh:datatype xsd:string ;
+            sh:description "Erstelldatum"@de,
+                "Creation Date"@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Erstelldatum" ;
+            sh:order 998 ;
+            sh:path merlot:creationDate 
+        ],
+        [   skos:example "'true'" ;
+            sh:datatype xsd:boolean ;
+            sh:description "Merlot Geschäftsbedingungen wurden gelesen und akzeptiert"@de,
+                "Merlot Terms and Conditions have been read and accepted"@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+			sh:hasValue true ;
+            sh:name "Merlot AGB akzeptieren" ;
+            sh:order 999 ;
+            sh:path merlot:merlotTermsAndConditionsAccepted 
+        ] .
+
+
+# merlot service offering
+merlot:RuntimeShape a sh:NodeShape ;
+    sh:closed true ;
+	sh:ignoredProperties ( rdf:type ) ;
+    sh:property 
+        [ skos:example "'5'" ;
+            sh:datatype xsd:integer ;
+            sh:minInclusive 0 ;
+            sh:description "Anzahl-Teil der Laufzeit. Auf 0 setzen für 'unbegrenzt'."@de,
+                "Number part of the runtime. Set to 0 for 'unlimited'."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Anzahl-Teil der Laufzeit" ;
+            sh:order 1 ;
+            sh:path merlot:runtimeCount ],
+        [ skos:example "'hour(s)'" ;
+            sh:datatype xsd:string ;
+            sh:description "Measurement part of the runtime"@de,
+                "Measurement part of the runtime"@en ;
+            sh:in ( "hour(s)" "day(s)" "week(s)" "month(s)" "year(s)" "unlimited" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Maß-Teil der Laufzeit" ;
+            sh:order 2 ;
+            sh:path merlot:runtimeMeasurement ] ;
+    sh:targetClass merlot:Runtime .
