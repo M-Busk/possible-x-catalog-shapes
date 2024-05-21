@@ -3,13 +3,12 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-merlot:MerlotLegalParticipantShape
+gx:LegalParticipantShape
     a sh:NodeShape ;
-    sh:targetClass merlot:MerlotLegalParticipant ;
+    sh:targetClass gx:LegalParticipant ;
     sh:property
         # Tagus base
         [
