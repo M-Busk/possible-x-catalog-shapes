@@ -650,7 +650,7 @@ gx:LoireServiceOfferingShape
         #    sh:order 7 ;
         #    sh:path gx:keyword ] .
 
-# Loire development
+# MERLOT extension
 merlot:MerlotServiceOfferingShape
     a sh:NodeShape ;
     sh:targetClass merlot:MerlotServiceOffering ;
