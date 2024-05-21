@@ -10,6 +10,7 @@
 merlot:MerlotSaasServiceOfferingShape
     a sh:NodeShape ;
     sh:targetClass merlot:MerlotSaasServiceOffering ;
+    sh:node merlot:MerlotServiceOfferingShape ;
     sh:property
         # merlot saas offering
         [ skos:example "'Intel Core i7'" ;

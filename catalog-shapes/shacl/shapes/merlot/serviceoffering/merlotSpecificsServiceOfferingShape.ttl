@@ -10,6 +10,7 @@
 merlot:MerlotServiceOfferingShape
     a sh:NodeShape ;
     sh:targetClass merlot:MerlotServiceOffering ;
+    sh:node gx:ServiceOfferingShape ;
     sh:property
         # MERLOT specific
         [   skos:example "'1€ / Download'" ;

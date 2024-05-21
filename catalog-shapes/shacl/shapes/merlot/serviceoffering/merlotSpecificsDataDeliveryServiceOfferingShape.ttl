@@ -10,6 +10,7 @@
 merlot:MerlotDataDeliveryServiceOfferingShape
     a sh:NodeShape ;
     sh:targetClass merlot:MerlotDataDeliveryServiceOffering ;
+    sh:node merlot:MerlotServiceOfferingShape ;
     sh:property
         # merlot data delivery offering
         [ skos:example "'Push'" ;

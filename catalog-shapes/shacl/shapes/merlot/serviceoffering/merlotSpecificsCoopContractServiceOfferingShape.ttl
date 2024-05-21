@@ -9,4 +9,5 @@
 
 merlot:MerlotCoopContractServiceOfferingShape
     a sh:NodeShape ;
-    sh:targetClass merlot:MerlotCoopContractServiceOffering .
+    sh:targetClass merlot:MerlotCoopContractServiceOffering ;
+    sh:node merlot:MerlotServiceOfferingShape ; .

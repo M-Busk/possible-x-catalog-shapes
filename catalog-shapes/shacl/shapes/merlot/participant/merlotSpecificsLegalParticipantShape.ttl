@@ -9,6 +9,7 @@
 
 merlot:MerlotLegalParticipantShape
     a sh:NodeShape ;
+    sh:node gx:LegalParticipantShape ;
     sh:targetClass merlot:MerlotLegalParticipant ;
     sh:property
         # MERLOT specific
