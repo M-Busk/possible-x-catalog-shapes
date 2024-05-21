@@ -14,7 +14,8 @@ merlot:MerlotLegalParticipantShape
         # Tagus base
         [
             sh:path gx:legalRegistrationNumber ;
-            sh:node gx:legalRegistrationNumberShape ;
+            sh:class gx:legalRegistrationNumber ;
+            sh:nodeKind sh:IRI ;
             sh:minCount 1 ;
         ],
         [
@@ -43,8 +44,7 @@ merlot:MerlotLegalParticipantShape
         #    sh:order 3 ;
         #    sh:path gx:parentOrganizationOf 
         #],
-        [   sh:class vcard:Address ;
-            sh:description "The full legal address of the organization." ;
+        [   sh:description "The full legal address of the organization." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "legal address" ;
@@ -52,8 +52,7 @@ merlot:MerlotLegalParticipantShape
             sh:order 1 ;
             sh:path gx:legalAddress  # prefixed with loire to avoid issues with the same path from tagus
         ],
-        [   sh:class vcard:Address ;
-            sh:description "Full physical location of the headquarter of the organization." ;
+        [   sh:description "Full physical location of the headquarter of the organization." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node vcard:Address ;
@@ -180,61 +179,6 @@ vcard:Address a sh:NodeShape ;
         #    sh:order 1 ;
         #    sh:path gx:gps ] ;
     sh:targetClass vcard:Address .
-
-gx:legalRegistrationNumberShape
-    a sh:NodeShape ;
-    sh:targetClass gx:legalRegistrationNumber ;
-    sh:message "At least one of taxID, vatID, EUID, EORI or leiCode must be defined." ;
-    sh:property
-        [
-            sh:path gx:taxID ;
-            sh:datatype xsd:string ;
-            sh:minLength 3 ;
-        ] ;
-    sh:property
-        [
-            sh:path gx:EUID ;
-            sh:datatype xsd:string ;
-            sh:minLength 3 ;
-        ] ;
-    sh:property
-        [
-            sh:path gx:EORI ;
-            sh:datatype xsd:string ;
-            sh:minLength 3 ;
-        ] ;
-    sh:property
-        [
-            sh:path gx:vatID ;
-            sh:datatype xsd:string ;
-            sh:minLength 3 ;
-        ] ;
-    sh:property
-        [
-            sh:path gx:leiCode ;
-            sh:datatype xsd:string ;
-            sh:minLength 3 ;
-        ] ;
-    sh:or
-        (
-            [
-                sh:path gx:taxID ;
-                sh:minCount 1 ;
-            ] [
-                  sh:path gx:EUID ;
-                  sh:minCount 1 ;
-              ] [
-                    sh:path gx:EORI ;
-                    sh:minCount 1 ;
-                ] [
-                      sh:path gx:vatID ;
-                      sh:minCount 1 ;
-                  ]
-            [
-                sh:path gx:leiCode ;
-                sh:minCount 1 ;
-            ]
-        ) .
 
 # original from Tagus, merged with VCARD Address above
 #gx:PostalAddressShape
