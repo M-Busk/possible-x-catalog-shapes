@@ -1,0 +1,356 @@
+# Tagus base
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+merlot:MerlotSaasServiceOfferingShape
+    a sh:NodeShape ;
+    sh:targetClass merlot:MerlotSaasServiceOffering ;
+    sh:property
+        [
+            sh:path gx:providedBy ;
+            sh:name "provided by" ;
+            sh:description "a resolvable link to the participant self-description providing the service." ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:node gx:LegalParticipant
+        ] ; # TODO add alternativePath to support all type of Participant
+    sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
+    sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
+    sh:property
+        [
+            sh:path gx:termsAndConditions ;
+            sh:name "terms & conditions" ;
+            sh:minCount 1 ;
+            sh:description
+                "a resolvable link to the service offering self-description related to the service and that can exist independently of it." ;
+            sh:node gx:SOTermsAndConditionsShape
+        ] ;
+    sh:property
+        [
+            sh:path gx:policy ;
+            sh:name "policy" ;
+            sh:minCount 1 ;
+            sh:description
+                "a list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)." ;
+            sh:datatype xsd:string
+        ] ;
+    sh:property
+        [
+            sh:path gx:dataProtectionRegime ;
+            sh:name "data protection regime" ;
+            sh:description "a list of data protection regime" ;
+            sh:in ( "GDPR2016" "LGPD2019" "PDPA2012" "CCPA2018" "VCDPA2021" ) ;
+            sh:message
+                "Refer to https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes" ;
+            sh:datatype xsd:string
+        ] ;
+    sh:property
+        [
+            sh:path gx:dataAccountExport ;
+            sh:name "data account export" ;
+            sh:minCount 1 ;
+            sh:description "list of methods to export data from your user’s account out of the service" ;
+            sh:node gx:DataAccountExportShape ;
+        ],
+    sh:property
+        # Loire development
+        #[   sh:description "One or more data protection regimes applying to the service offering." ;
+        #    sh:in ( "GDPR2016" "LGPD2019" "PDPA2012" "CCPA2018" "VCDPA2021" ) ;
+        #    sh:name "data protection regime" ;
+        #    sh:order 5 ;
+        #    sh:path gx:dataProtectionRegime 
+        #],
+        [   sh:datatype xsd:string ;
+            sh:description "A human readable name of the entity." ;
+            sh:maxCount 1 ;
+            sh:name "name" ;
+            sh:order 11 ;
+            sh:path gx:name 
+        ],
+        #[   sh:datatype xsd:string ;
+        #    sh:defaultValue "default:allow intent"^^xsd:string ;
+        #    sh:description "Ome or more policies expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints, the policy should express a simple default: " ;
+        #    sh:minCount 1 ;
+        #    sh:order 4 ;
+        #    sh:path gx:servicePolicy 
+        #],
+        #[   sh:description "A list of resolvable links to Gaia-X Credentials of service offerings related to the service and that can exist independently of it." ;
+        #    sh:name "depends on" ;
+        #    sh:or ( [ sh:class gx:ServiceOffering ] [ sh:class gx:InfrastructureServiceOffering ] [ sh:class gx:ComputeServiceOffering ] [ sh:class gx:VirtualMachineServiceOffering ] ) ;
+        #    sh:order 1 ;
+        #    sh:path gx:dependsOn 
+        #],
+        #[   sh:class gx:Endpoint ;
+        #    sh:description "Endpoint through which the Service Offering can be accessed." ;
+        #    sh:maxCount 1 ;
+        #    sh:name "endpoint" ;
+        #    sh:nodeKind sh:BlankNodeOrIRI ;
+        #    sh:order 9 ;
+        #    sh:path gx:endpoint 
+        #],
+        #[   sh:description "Provision type of the service" ;
+        #    sh:in ( "private" "public" "hybrid" ) ;
+        #    sh:maxCount 1 ;
+        #    sh:name "provision type" ;
+        #    sh:order 8 ;
+        #    sh:path gx:provisionType 
+        #],
+        #[   sh:description "A list of resolvable links to Gaia-X Credentials of resources related to the service and that can exist independently of it." ;
+        #    sh:name "aggregation of" ;
+        #    sh:or ( [ sh:class gx:PhysicalResource ] [ sh:class gx:VirtualResource ] [ sh:class gx:SoftwareResource ] [ sh:class gx:OperatingSystem ] ) ;
+        #    sh:order 2 ;
+        #    sh:path gx:aggregationOfResources 
+        #],
+        #[   sh:class gx:LegalPerson ;
+        #    sh:description "A resolvable link to Gaia-X Credential of the participant providing the service." ;
+        #    sh:maxCount 1 ;
+        #    sh:minCount 1 ;
+        #    sh:name "provided by" ;
+        #    sh:nodeKind sh:IRI ;
+        #    sh:order 0 ;
+        #    sh:path gx:providedBy 
+        #],
+        #[   sh:class gx:TermsAndConditions ;
+        #    sh:description "One or more Terms and Conditions applying to that service." ;
+        #    sh:minCount 1 ;
+        #    sh:name "terms and conditions" ;
+        #    sh:nodeKind sh:BlankNodeOrIRI ;
+        #    sh:order 3 ;
+        #    sh:path gx:serviceOfferingTermsAndConditions 
+        #],
+        #[   sh:class gx:DataAccountExport ;
+        #    sh:description "One or more methods to export data out of the service." ;
+        #    sh:minCount 1 ;
+        #    sh:name "data account export" ;
+        #    sh:nodeKind sh:BlankNodeOrIRI ;
+        #    sh:order 6 ;
+        #    sh:path gx:dataAccountExport 
+        #],
+        [   sh:datatype xsd:string ;
+            sh:description "A free text description of the entity." ;
+            sh:maxCount 1 ;
+            sh:name "description" ;
+            sh:order 12 ;
+            sh:path gx:description 
+        ],
+        #[   sh:description "List of Resource references where service is hosted and can be instantiated. Can refer to availabilty zones, data centers, regions, etc." ;
+        #    sh:name "hosted on" ;
+        #    sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] ) ;
+        #    sh:order 10 ;
+        #    sh:path gx:hostedOn 
+        #],
+        #[   sh:datatype xsd:string ;
+        #    sh:description "Keywords that describe / tag the service." ;
+        #    sh:order 7 ;
+        #    sh:path gx:keyword 
+        #] .
+        # MERLOT specific
+        [   skos:example "'1€ / Download'" ;
+            sh:datatype xsd:string ;
+            sh:description "Beispielkosten"@de,
+                "Example Costs"@en ;
+            sh:maxCount 1 ;
+            sh:name "Beispielkosten" ;
+            sh:order 101 ;
+            sh:path merlot:exampleCosts 
+        ],
+        [   skos:example "'1 hour(s)'" ;
+            sh:description "Option für eine Laufzeit des Serviceangebots"@de,
+                "Option for a runtime of the Service Offering"@en ;
+            sh:name "Laufzeit-Option" ;
+            sh:minCount 1 ;
+            sh:node gax-validation:RuntimeShape ;
+            sh:order 199 ;
+            sh:path merlot:runtimeOption 
+        ],
+        [   skos:example "'01.01.2023'" ;
+            sh:datatype xsd:string ;
+            sh:description "Erstelldatum"@de,
+                "Creation Date"@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Erstelldatum" ;
+            sh:order 998 ;
+            sh:path merlot:creationDate 
+        ],
+        [   skos:example "'true'" ;
+            sh:datatype xsd:boolean ;
+            sh:description "Merlot Geschäftsbedingungen wurden gelesen und akzeptiert"@de,
+                "Merlot Terms and Conditions have been read and accepted"@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+			sh:hasValue true ;
+            sh:name "Merlot AGB akzeptieren" ;
+            sh:order 999 ;
+            sh:path merlot:merlotTermsAndConditionsAccepted 
+        ],
+        # merlot saas offering
+        [ skos:example "'Intel Core i7'" ;
+            sh:datatype xsd:string ;
+            sh:description "Anforderungen an die Hardware"@de,
+                "Hardware Requirements"@en ;
+            sh:maxCount 1 ;
+            sh:name "Anforderungen an die Hardware" ;
+            sh:order 102 ;
+            sh:path merlot:hardwareRequirements 
+        ],
+        [   skos:example "'up to 5'" ;
+            sh:description "Option für die zulässige Anzahl von Benutzern der Software"@de,
+                "Option for allowed count of users for the software"@en ;
+            sh:name "Nutzeranzahl-Option" ;
+            sh:node merlot:AllowedUserCountShape ;
+            sh:order 198 ;
+            sh:minCount 1 ;
+            sh:path merlot:userCountOption 
+        ] .
+
+# merlot saas offering
+merlot:AllowedUserCountShape a sh:NodeShape ;
+    sh:closed true ;
+	sh:ignoredProperties ( rdf:type ) ;
+    sh:property 
+        [ skos:example "'5'" ;
+            sh:datatype xsd:integer ;
+            sh:minInclusive 0 ;
+            sh:description "Zulässige Anzahl der Benutzer. Auf 0 setzen für 'unbegrenzt'."@de,
+                "Number of users up to which the usage is allowed. Set to 0 for 'unlimited'."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Option für maximale Nutzerzahl" ;
+            sh:order 1 ;
+            sh:path merlot:userCountUpTo ] ;
+    sh:targetClass merlot:AllowedUserCount .
+
+
+# merlot service offering
+merlot:RuntimeShape a sh:NodeShape ;
+    sh:closed true ;
+	sh:ignoredProperties ( rdf:type ) ;
+    sh:property 
+        [ skos:example "'5'" ;
+            sh:datatype xsd:integer ;
+            sh:minInclusive 0 ;
+            sh:description "Anzahl-Teil der Laufzeit. Auf 0 setzen für 'unbegrenzt'."@de,
+                "Number part of the runtime. Set to 0 for 'unlimited'."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Anzahl-Teil der Laufzeit" ;
+            sh:order 1 ;
+            sh:path merlot:runtimeCount ],
+        [ skos:example "'hour(s)'" ;
+            sh:datatype xsd:string ;
+            sh:description "Measurement part of the runtime"@de,
+                "Measurement part of the runtime"@en ;
+            sh:in ( "hour(s)" "day(s)" "week(s)" "month(s)" "year(s)" "unlimited" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Maß-Teil der Laufzeit" ;
+            sh:order 2 ;
+            sh:path merlot:runtimeMeasurement ] ;
+    sh:targetClass merlot:Runtime .
+
+
+gx:dependsOnExists
+    sh:path gx:dependsOn ;
+    sh:name "depends on" ;
+    sh:description
+        "a resolvable link to the service offering self-description related to the service and that can exist independently of it." ;
+    sh:minCount 1 ;
+    sh:node gx:ServiceOfferingShape ;
+    sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
+    sh:qualifiedMinCount 1 ;
+.
+
+gx:dependsOnNotExists
+    sh:path gx:dependsOn ;  
+    sh:name "depends on" ;
+    sh:description
+        "a resolvable link to the service offering self-description related to the service and that can exist independently of it." ;
+    sh:maxCount 0 ;
+.
+
+gx:aggregationOfExists
+    sh:path gx:aggregationOf ;
+    sh:name "aggregation of" ;
+    sh:description
+        "a resolvable link to the resources self-description related to the service and that can exist independently of it." ;
+    sh:minCount 1 ;
+    sh:qualifiedValueShape [sh:or
+        (
+            [ sh:class gx:PhysicalResource ] 
+            [ sh:class gx:VirtualResource ] 
+            [ sh:class gx:DataResource ]
+            [ sh:class gx:SoftwareResource]
+        )] ;
+    sh:qualifiedMinCount 1 ;
+.
+
+gx:aggregationOfNotExists
+    sh:path gx:aggregationOf ;  
+    sh:name "aggregation of" ;
+    sh:description
+        "a resolvable link to the resources self-description related to the service and that can exist independently of it." ;
+    sh:maxCount 0 ;
+.
+
+gx:SOTermsAndConditionsShape
+    a sh:NodeShape ;
+    sh:targetClass gx:SOTermsAndConditions ;
+    sh:property
+        [
+            sh:path gx:URL ;
+            sh:name "URL" ;
+            sh:description "a resolvable link to document" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string
+        ] ;
+    sh:property
+        [
+            sh:path gx:hash ;
+            sh:name "hash" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:description "sha256 hash of the above document." ;
+            sh:datatype xsd:string
+        ] .
+
+gx:DataAccountExportShape
+    a sh:NodeShape ;
+    sh:targetClass gx:dataAccountExport ;
+    sh:property
+        [
+            sh:path gx:requestType ;
+            sh:datatype xsd:string ;
+            sh:name "Request type" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:in ( "API" "email" "webform" "unregisteredLetter" "registeredLetter" "supportCenter" )
+        ] ;
+    sh:property
+        [
+            sh:path gx:accessType ;
+            sh:datatype xsd:string ;
+            sh:name "Access type" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:description "type of data support: digital, physical." ;
+            sh:in ( "digital" "physical" )
+        ] ;
+    sh:property
+        [
+            sh:path gx:formatType ;
+            sh:datatype xsd:string ;
+            sh:name "Format type" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:pattern "^\\w+/[-+.\\w]+$" ;
+            sh:flags "i" ;
+            sh:message "type of Media Types (formerly known as MIME types) as defined by the IANA." ;
+        ] .
