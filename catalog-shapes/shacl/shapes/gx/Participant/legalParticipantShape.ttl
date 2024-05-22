@@ -70,7 +70,7 @@ gx:LegalParticipantShape
             sh:name "name" ;
             sh:order 5 ;
             sh:path gx:name 
-        ] . ###,
+        ],
         #[   sh:description "Country's registration number, which identifies one specific entity. Valid formats are local, EUID, EORI, vatID, leiCode." ;
         #    sh:minCount 1 ;
         #    sh:name "registration number" ;
@@ -78,13 +78,13 @@ gx:LegalParticipantShape
         #    sh:order 0 ;
         #    sh:path gx:registrationNumber 
         #],
-        #[   sh:datatype xsd:string ;
-        #    sh:description "A free text description of the entity." ;
-        #    sh:maxCount 1 ;
-        #    sh:name "description" ;
-        #    sh:order 6 ;
-        #    sh:path gx:description 
-        #]
+        [   sh:datatype xsd:string ;
+            sh:description "A free text description of the entity." ;
+            sh:maxCount 1 ;
+            sh:name "description" ;
+            sh:order 6 ;
+            sh:path gx:description 
+        ] .
 
 # Loire development base
 vcard:Address a sh:NodeShape ;

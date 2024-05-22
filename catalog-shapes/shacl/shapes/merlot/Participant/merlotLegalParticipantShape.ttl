@@ -23,6 +23,7 @@ merlot:MerlotLegalParticipantShape
         [
             sh:path merlot:termsAndConditions ;
             sh:minCount 1 ;
+            sh:maxCount 1 ;
             sh:node merlot:ParticipantTermsAndConditionsShape ;
         ],
         [   skos:example "'L.L.C, GmbH'" ;
