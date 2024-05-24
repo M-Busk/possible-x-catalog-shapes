@@ -14,30 +14,35 @@ gx:legalRegistrationNumberShape
     sh:property
         [
             sh:path gx:taxID ;
+            sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
         ] ;
     sh:property
         [
             sh:path gx:EUID ;
+            sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
         ] ;
     sh:property
         [
             sh:path gx:EORI ;
+            sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
         ] ;
     sh:property
         [
             sh:path gx:vatID ;
+            sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
         ] ;
     sh:property
         [
             sh:path gx:leiCode ;
+            sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
         ] ;
