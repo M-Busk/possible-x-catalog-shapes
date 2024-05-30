@@ -16,6 +16,7 @@ gx:LegalParticipantShape
             sh:class gx:legalRegistrationNumber ;
             sh:nodeKind sh:IRI ;
             sh:minCount 1 ;
+            sh:maxCount 1 ; # added by MERLOT
         ],
         [
             sh:path gx:parentOrganization ;
