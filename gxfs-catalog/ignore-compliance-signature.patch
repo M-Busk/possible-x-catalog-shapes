@@ -1,0 +1,43 @@
+diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
+index c9aa361a..1a74da2b 100644
+--- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
++++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
+@@ -89,12 +89,19 @@ public class LocalSignatureVerifier implements SignatureVerifier {
+ 	@Override
+ 	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
+       log.debug("verify; got jwk: {}, alg: {}", jwk, alg);
++
++	  if (proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1-staging")
++			  || proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1")) {
++		  log.warn("received proof from compliance v1, ignoring signature...");
++		  return true;
++	  }
++
+ 	  PublicKeyVerifier<?> pkVerifier = PublicKeyVerifierFactory.publicKeyVerifierForJWK(jwk, alg);
+ 	  LdVerifier<?> verifier = new JsonWebSignature2020LdVerifier(pkVerifier);
+ 	  try {
+ 		return verifier.verify(payload);
+ 	  } catch (IOException | GeneralSecurityException | JsonLDException ex) {
+-		log.info("verify.error: {}", ex.getMessage());
++		log.warn("verify.error: {}", ex.getMessage());
+ 	  }
+ 	  return false;
+ 	}
+diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
+index f752f523..e282a07d 100644
+--- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
++++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
+@@ -92,6 +92,13 @@ public class UniSignatureVerifier implements SignatureVerifier {
+ 	@Override
+ 	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
+ 		log.debug("verify.enter; alg: {}, jwk: {}", alg, jwk);
++
++		if (proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1-staging")
++				|| proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1")) {
++			log.info("received proof from compliance v1, ignoring signature...");
++			return true;
++		}
++
+ 		LdVerifier<?> verifier = LdVerifierRegistry.getLdVerifierBySignatureSuiteTerm(proof.getType());
+ 		PublicKeyVerifier<?> pkVerifier = PublicKeyVerifierFactory.publicKeyVerifierForJWK(jwk, alg);
+ 		verifier.setVerifier(pkVerifier);

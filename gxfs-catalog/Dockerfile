@@ -15,9 +15,9 @@ RUN apk add --no-cache git maven &&\
     git clone -b main https://gitlab.eclipse.org/eclipse/xfsc/cat/fc-service.git &&\
     cd /fc-service &&\
 	git checkout $SERVICE_VERSION &&\
-	git apply /add_merlot_pubkey.patch &&\
 	git apply /truncate_schemas.patch &&\
     git apply /optional_registry.patch &&\
+    git apply /ignore-compliance-signature.patch &&\
     rm -rf fc-service-core/src/main/resources/defaultschema/ontology &&\
     rm fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
     cp /catalog-shapes/shacl/shapes/mergedShapes.ttl fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
