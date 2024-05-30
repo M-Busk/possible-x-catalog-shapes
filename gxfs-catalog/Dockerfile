@@ -8,9 +8,10 @@ RUN apk add --no-cache python3 py3-rdflib &&\
     cd /catalog-shapes &&\
     python3 merge_shapes.py
 
-COPY gxfs-catalog/add_merlot_pubkey.patch /add_merlot_pubkey.patch
 COPY gxfs-catalog/truncate_schemas.patch /truncate_schemas.patch
 COPY gxfs-catalog/optional_registry.patch /optional_registry.patch
+COPY gxfs-catalog/ignore-compliance-signature.patch /ignore-compliance-signature.patch
+
 RUN apk add --no-cache git maven &&\
     git clone -b main https://gitlab.eclipse.org/eclipse/xfsc/cat/fc-service.git &&\
     cd /fc-service &&\
