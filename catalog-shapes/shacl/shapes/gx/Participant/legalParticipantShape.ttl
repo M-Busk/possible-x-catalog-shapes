@@ -50,14 +50,14 @@ gx:LegalParticipantShape
             sh:name "legal address" ;
             sh:node vcard:Address ;
             sh:order 1 ;
-            sh:path gx:legalAddress  # prefixed with loire to avoid issues with the same path from tagus
+            sh:path gx:legalAddress
         ],
         [   sh:description "Full physical location of the headquarter of the organization." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:node vcard:Address ;
             sh:order 2 ;
-            sh:path gx:headquarterAddress  ## prefixed with loire to avoid issues with the same path from tagus
+            sh:path gx:headquarterAddress
         ],
         #[   sh:class gx:LegalPerson ;
         #    sh:description "A list of resolvable links to Gaia-X Credentials of participants with a legal mandate on this entity, e.g., as a subsidiary." ;

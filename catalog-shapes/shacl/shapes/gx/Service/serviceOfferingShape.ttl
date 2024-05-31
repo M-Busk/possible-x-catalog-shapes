@@ -55,7 +55,7 @@ gx:ServiceOfferingShape
             sh:name "data account export" ;
             sh:minCount 1 ;
             sh:description "list of methods to export data from your user’s account out of the service" ;
-            sh:node gx:DataAccountExportShape ;
+            sh:node gx:DataAccountExport ;
         ] ;
     sh:property
         # Loire development
@@ -217,7 +217,8 @@ gx:SOTermsAndConditionsShape
 
 gx:DataAccountExportShape
     a sh:NodeShape ;
-    sh:targetClass gx:dataAccountExport ;
+    sh:ignoredProperties ( rdf:type ) ; # added by merlot
+    sh:targetClass gx:DataAccountExport ;
     sh:property
         [
             sh:path gx:requestType ;
