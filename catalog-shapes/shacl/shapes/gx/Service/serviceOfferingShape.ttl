@@ -67,6 +67,7 @@ gx:ServiceOfferingShape
         #],
         [   sh:datatype xsd:string ;
             sh:description "A human readable name of the entity." ;
+            sh:minCount 1 ; # added by MERLOT
             sh:maxCount 1 ;
             sh:name "name" ;
             sh:order 11 ;
