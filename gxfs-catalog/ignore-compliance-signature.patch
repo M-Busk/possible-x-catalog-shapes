@@ -1,43 +1,68 @@
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
-index c9aa361a..c227e318 100644
+index c9aa361a..2df4bc52 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
-@@ -89,12 +89,21 @@ public class LocalSignatureVerifier implements SignatureVerifier {
+@@ -13,6 +13,7 @@ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+ 
++import com.danubetech.verifiablecredentials.CredentialSubject;
+ import org.apache.commons.io.IOUtils;
+ import org.bouncycastle.jce.provider.BouncyCastleProvider;
+ 
+@@ -89,6 +90,22 @@ public class LocalSignatureVerifier implements SignatureVerifier {
  	@Override
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
        log.debug("verify; got jwk: {}, alg: {}", jwk, alg);
-+	  log.info("got payload: {}", payload);
 +
-+	  // TODO check CS type instead
-+	  if (proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1-staging")
-+			  || proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1")) {
-+		  log.warn("received proof from compliance v1, ignoring signature...");
++	  boolean allCompliance = false;
++	  Object cs = payload.getJsonObject().get("credentialSubject");
++	  if (cs instanceof List<?> csObjectList) {
++		  List<CredentialSubject> csList = (List<CredentialSubject>) csObjectList;
++		  allCompliance = true;
++		  for (CredentialSubject innerCs : csList) {
++			  allCompliance &= innerCs.isType("gx:compliance");
++		  }
++	  }
++
++	  if (allCompliance) {
++		  log.info("received proof from compliance credential subject, ignoring signature...");
 +		  return true;
 +	  }
 +
  	  PublicKeyVerifier<?> pkVerifier = PublicKeyVerifierFactory.publicKeyVerifierForJWK(jwk, alg);
  	  LdVerifier<?> verifier = new JsonWebSignature2020LdVerifier(pkVerifier);
  	  try {
- 		return verifier.verify(payload);
- 	  } catch (IOException | GeneralSecurityException | JsonLDException ex) {
--		log.info("verify.error: {}", ex.getMessage());
-+		log.warn("verify.error: {}", ex.getMessage());
- 	  }
- 	  return false;
- 	}
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
-index f752f523..05331337 100644
+index f752f523..03bd743d 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
-@@ -92,6 +92,14 @@ public class UniSignatureVerifier implements SignatureVerifier {
+@@ -8,6 +8,7 @@ import java.util.List;
+ import java.util.Map;
+ import java.util.Optional;
+ 
++import com.danubetech.verifiablecredentials.CredentialSubject;
+ import org.springframework.beans.factory.annotation.Autowired;
+ 
+ import com.danubetech.keyformats.crypto.PublicKeyVerifier;
+@@ -92,6 +93,23 @@ public class UniSignatureVerifier implements SignatureVerifier {
  	@Override
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
  		log.debug("verify.enter; alg: {}, jwk: {}", alg, jwk);
-+		log.info("got payload: {}", payload);
 +
-+		if (proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1-staging")
-+				|| proof.getVerificationMethod().toString().startsWith("did:web:compliance.lab.gaia-x.eu:v1")) {
-+			log.info("received proof from compliance v1, ignoring signature...");
++		boolean allCompliance = false;
++		Object cs = payload.getJsonObject().get("credentialSubject");
++		if (cs instanceof List<?> csObjectList) {
++			List<CredentialSubject> csList = (List<CredentialSubject>) csObjectList;
++
++			allCompliance = true;
++			for (CredentialSubject innerCs : csList) {
++				allCompliance &= innerCs.isType("gx:compliance");
++			}
++		}
++
++		if (allCompliance) {
++			log.info("received proof from compliance credential subject, ignoring signature...");
 +			return true;
 +		}
 +
