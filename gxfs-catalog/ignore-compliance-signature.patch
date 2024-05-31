@@ -1,5 +1,5 @@
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
-index c9aa361a..2df4bc52 100644
+index c9aa361a..8e836c52 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
 @@ -13,6 +13,7 @@ import java.util.List;
@@ -10,22 +10,12 @@ index c9aa361a..2df4bc52 100644
  import org.apache.commons.io.IOUtils;
  import org.bouncycastle.jce.provider.BouncyCastleProvider;
  
-@@ -89,6 +90,22 @@ public class LocalSignatureVerifier implements SignatureVerifier {
+@@ -89,6 +90,12 @@ public class LocalSignatureVerifier implements SignatureVerifier {
  	@Override
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
        log.debug("verify; got jwk: {}, alg: {}", jwk, alg);
 +
-+	  boolean allCompliance = false;
-+	  Object cs = payload.getJsonObject().get("credentialSubject");
-+	  if (cs instanceof List<?> csObjectList) {
-+		  List<CredentialSubject> csList = (List<CredentialSubject>) csObjectList;
-+		  allCompliance = true;
-+		  for (CredentialSubject innerCs : csList) {
-+			  allCompliance &= innerCs.isType("gx:compliance");
-+		  }
-+	  }
-+
-+	  if (allCompliance) {
++	  if (isPureComplianceCredential(payload)) {
 +		  log.info("received proof from compliance credential subject, ignoring signature...");
 +		  return true;
 +	  }
@@ -33,8 +23,51 @@ index c9aa361a..2df4bc52 100644
  	  PublicKeyVerifier<?> pkVerifier = PublicKeyVerifierFactory.publicKeyVerifierForJWK(jwk, alg);
  	  LdVerifier<?> verifier = new JsonWebSignature2020LdVerifier(pkVerifier);
  	  try {
+diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/SignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/SignatureVerifier.java
+index c973ba08..ae7b047e 100644
+--- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/SignatureVerifier.java
++++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/SignatureVerifier.java
+@@ -3,13 +3,37 @@ package eu.xfsc.fc.core.service.verification.signature;
+ 
+ import com.danubetech.keyformats.jose.JWK;
+ 
++import com.danubetech.verifiablecredentials.CredentialSubject;
+ import eu.xfsc.fc.core.pojo.Validator;
+ import foundation.identity.jsonld.JsonLDObject;
+ import info.weboftrust.ldsignatures.LdProof;
+ 
++import java.util.List;
++import java.util.Map;
++
+ public interface SignatureVerifier {
+ 
+ 	  Validator checkSignature(JsonLDObject payload, LdProof proof);
+ 	  boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg);
+-	
++
++	  default boolean isPureComplianceCredential(JsonLDObject payload) {
++		  boolean allCompliance = true;
++		  Object csObject = payload.getJsonObject().get("credentialSubject");
++		  if (csObject instanceof List<?> csObjectList) {
++			  // if credential subject is a list, check every element for type
++			  List<CredentialSubject> csList = csObjectList.stream()
++					  .map(o -> (Map<String, Object>) o)
++					  .map(CredentialSubject::fromMap)
++					  .toList();
++
++			  for (CredentialSubject innerCs : csList) {
++				  allCompliance &= innerCs.isType("gx:compliance");
++			  }
++		  } else {
++			  // if credential subject is not a list, it is a plain object. check type
++			  CredentialSubject cs = CredentialSubject.fromMap((Map<String, Object>) csObject);
++			  allCompliance &= cs.isType("gx:compliance");
++		  }
++		  return allCompliance;
++	  }
+ }
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
-index f752f523..03bd743d 100644
+index f752f523..7ab05fe5 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
 @@ -8,6 +8,7 @@ import java.util.List;
@@ -45,23 +78,12 @@ index f752f523..03bd743d 100644
  import org.springframework.beans.factory.annotation.Autowired;
  
  import com.danubetech.keyformats.crypto.PublicKeyVerifier;
-@@ -92,6 +93,23 @@ public class UniSignatureVerifier implements SignatureVerifier {
+@@ -92,6 +93,12 @@ public class UniSignatureVerifier implements SignatureVerifier {
  	@Override
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
  		log.debug("verify.enter; alg: {}, jwk: {}", alg, jwk);
 +
-+		boolean allCompliance = false;
-+		Object cs = payload.getJsonObject().get("credentialSubject");
-+		if (cs instanceof List<?> csObjectList) {
-+			List<CredentialSubject> csList = (List<CredentialSubject>) csObjectList;
-+
-+			allCompliance = true;
-+			for (CredentialSubject innerCs : csList) {
-+				allCompliance &= innerCs.isType("gx:compliance");
-+			}
-+		}
-+
-+		if (allCompliance) {
++		if (isPureComplianceCredential(payload)) {
 +			log.info("received proof from compliance credential subject, ignoring signature...");
 +			return true;
 +		}
