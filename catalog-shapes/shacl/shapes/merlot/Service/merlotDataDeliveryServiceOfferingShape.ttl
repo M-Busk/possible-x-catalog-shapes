@@ -47,8 +47,6 @@ merlot:MerlotDataDeliveryServiceOfferingShape
 
 # merlot data delivery offering
 merlot:DataExchangeCountShape a sh:NodeShape ;
-    sh:closed true ;
-	sh:ignoredProperties ( rdf:type ) ;
     sh:property 
         [ skos:example "'5'" ;
             sh:datatype xsd:integer ;
