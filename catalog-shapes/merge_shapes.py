@@ -8,6 +8,8 @@ graph = rdflib.Graph()
 
 for root, _, files in os.walk(shape_base_folder, topdown=False):
     for name in files:
+        if not name.endswith(".ttl"):
+            continue
         file_path = os.path.join(root, name)
         if file_path == shape_output_path:
             continue

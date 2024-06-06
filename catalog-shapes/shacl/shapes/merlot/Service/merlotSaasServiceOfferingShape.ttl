@@ -1,0 +1,48 @@
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+merlot:MerlotSaasServiceOfferingShape
+    a sh:NodeShape ;
+    sh:targetClass merlot:MerlotSaasServiceOffering ;
+    sh:node merlot:MerlotServiceOfferingShape ;
+    sh:property
+        # merlot saas offering
+        [ skos:example "'Intel Core i7'" ;
+            sh:datatype xsd:string ;
+            sh:description "Anforderungen an die Hardware"@de,
+                "Hardware Requirements"@en ;
+            sh:maxCount 1 ;
+            sh:name "Anforderungen an die Hardware" ;
+            sh:order 102 ;
+            sh:path merlot:hardwareRequirements 
+        ],
+        [   skos:example "'up to 5'" ;
+            sh:description "Option für die zulässige Anzahl von Benutzern der Software"@de,
+                "Option for allowed count of users for the software"@en ;
+            sh:name "Nutzeranzahl-Option" ;
+            sh:node merlot:AllowedUserCountShape ;
+            sh:order 198 ;
+            sh:minCount 1 ;
+            sh:path merlot:userCountOption 
+        ] .
+
+# merlot saas offering
+merlot:AllowedUserCountShape a sh:NodeShape ;
+    sh:property 
+        [ skos:example "'5'" ;
+            sh:datatype xsd:integer ;
+            sh:minInclusive 0 ;
+            sh:description "Zulässige Anzahl der Benutzer. Auf 0 setzen für 'unbegrenzt'."@de,
+                "Number of users up to which the usage is allowed. Set to 0 for 'unlimited'."@en ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "Option für maximale Nutzerzahl" ;
+            sh:order 1 ;
+            sh:path merlot:userCountUpTo ] ;
+    sh:targetClass merlot:AllowedUserCount .

@@ -1,0 +1,13 @@
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+merlot:MerlotCoopContractServiceOfferingShape
+    a sh:NodeShape ;
+    sh:targetClass merlot:MerlotCoopContractServiceOffering ;
+    sh:node merlot:MerlotServiceOfferingShape ; .

@@ -1,0 +1,39 @@
+@prefix gax-core: <https://w3id.org/gaia-x/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix merlot: <http://w3id.org/gaia-x/merlot#> .
+
+
+merlot:
+    a   owl:Ontology ; .
+
+merlot:MerlotLegalParticipant
+    a               owl:Class;
+    rdfs:label      "MerlotLegalParticipant"@en ;
+    rdfs:subClassOf  gx:LegalParticipant ;
+.
+
+merlot:MerlotServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"MerlotServiceOffering"@en ;
+	rdfs:subClassOf	 gx:ServiceOffering ;
+.
+
+merlot:MerlotCoopContractServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"MerlotCoopContractServiceOffering"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+.
+
+merlot:MerlotDataDeliveryServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"MerlotDataDeliveryServiceOffering"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+.
+
+merlot:MerlotSaasServiceOffering
+	a		 		owl:Class;
+	rdfs:label		"MerlotSaasServiceOffering"@en ;
+	rdfs:subClassOf	 merlot:MerlotServiceOffering ;
+.
