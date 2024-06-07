@@ -1,5 +1,5 @@
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
-index c9aa361a..8e836c52 100644
+index c9aa361a..8d7efab2 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/LocalSignatureVerifier.java
 @@ -13,6 +13,7 @@ import java.util.List;
@@ -15,7 +15,7 @@ index c9aa361a..8e836c52 100644
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
        log.debug("verify; got jwk: {}, alg: {}", jwk, alg);
 +
-+	  if (isPureComplianceCredential(payload)) {
++	  if (isPureComplianceCredential(payload) || isPureRegistrationNumberCredential(payload)) {
 +		  log.info("received proof from compliance credential subject, ignoring signature...");
 +		  return true;
 +	  }
@@ -76,7 +76,7 @@ index c973ba08..d1ce4473 100644
 +	}
  }
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
-index f752f523..7ab05fe5 100644
+index f752f523..01843439 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/signature/UniSignatureVerifier.java
 @@ -8,6 +8,7 @@ import java.util.List;
@@ -92,7 +92,7 @@ index f752f523..7ab05fe5 100644
  	public boolean verify(JsonLDObject payload, LdProof proof, JWK jwk, String alg) {
  		log.debug("verify.enter; alg: {}, jwk: {}", alg, jwk);
 +
-+		if (isPureComplianceCredential(payload)) {
++		if (isPureComplianceCredential(payload) || isPureRegistrationNumberCredential(payload)) {
 +			log.info("received proof from compliance credential subject, ignoring signature...");
 +			return true;
 +		}
