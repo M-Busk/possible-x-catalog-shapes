@@ -16,7 +16,7 @@ gx:ServiceOfferingShape
             sh:name "provided by"@en,
             "Anbieter"@de ;
             sh:description "a resolvable link to the participant self-description providing the service."@en,
-            "a resolvable link to the participant self-description providing the service."@de ;
+            "Ein auflösbarer Link zum Teilnehmer, der dieses Angebot zur Verfügung stellt."@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -31,7 +31,7 @@ gx:ServiceOfferingShape
             sh:minCount 2 ; # set to 2 instead of 1 by MERLOT
             sh:description
                 "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
-                "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@de ;
+                "Geschäftsbedingungen zu diesem Angebot."@de ;
             sh:node gx:SOTermsAndConditionsShape
         ] ;
     sh:property
@@ -42,7 +42,7 @@ gx:ServiceOfferingShape
             sh:minCount 1 ;
             sh:description
                 "a list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)."@en,
-                "a list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)."@de ;
+                "Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
             sh:datatype xsd:string
         ] ;
     sh:property
@@ -54,7 +54,7 @@ gx:ServiceOfferingShape
             sh:in ( "GDPR2016" "LGPD2019" "PDPA2012" "CCPA2018" "VCDPA2021" ) ;
             sh:message
                 "Refer to https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes"@en,
-                "Refer to https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes"@de ;
+                "Siehe https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes"@de ;
             sh:datatype xsd:string
         ] ;
     sh:property
@@ -64,7 +64,7 @@ gx:ServiceOfferingShape
             "Datenexportmethode"@de ;
             sh:minCount 1 ;
             sh:description "list of methods to export data from your user’s account out of the service"@en,
-            "list of methods to export data from your user’s account out of the service"@de ;
+            "Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
             sh:node gx:DataAccountExport ;
         ] ;
     sh:property
@@ -77,7 +77,7 @@ gx:ServiceOfferingShape
         #],
         [   sh:datatype xsd:string ;
             sh:description "A human readable name of the entity."@en,
-            "A human readable name of the entity."@de ;
+            "Name des Angebots."@de ;
             sh:minCount 1 ; # added by MERLOT
             sh:maxCount 1 ;
             sh:name "name"@en,
@@ -146,7 +146,7 @@ gx:ServiceOfferingShape
         #],
         [   sh:datatype xsd:string ;
             sh:description "A free text description of the entity."@en,
-            "A free text description of the entity."@de ;
+            "Eine Freitext-Beschreibung des Angebots."@de ;
             sh:maxCount 1 ;
             sh:name "description"@en,
             "Beschreibung"@de ;
@@ -171,7 +171,7 @@ gx:dependsOnExists
     "Abhängig von"@de ;
     sh:description
         "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
-        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@de ;
+        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
@@ -184,7 +184,7 @@ gx:dependsOnNotExists
     "Abhängig von"@de ;
     sh:description
         "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
-        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@de ;
+        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
     sh:maxCount 0 ;
 .
 
@@ -194,7 +194,7 @@ gx:aggregationOfExists
     "Zusammenstellung von"@de ;
     sh:description
         "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
-        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@de ;
+        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
     sh:minCount 1 ;
     sh:qualifiedValueShape [sh:or
         (
@@ -212,7 +212,7 @@ gx:aggregationOfNotExists
     "Zusammenstellung von"@de ;
     sh:description
         "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
-        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@de ;
+        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
     sh:maxCount 0 ;
 .
 
@@ -225,7 +225,7 @@ gx:SOTermsAndConditionsShape
             sh:name "URL"@en,
             "URL"@de ;
             sh:description "a resolvable link to document"@en,
-            "a resolvable link to document"@de ;
+            "Auflösbarer Link zum Dokument."@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:datatype xsd:string
@@ -238,7 +238,7 @@ gx:SOTermsAndConditionsShape
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:description "sha256 hash of the above document."@en,
-            "sha256 hash of the above document."@de ;
+            "SHA256 Hash des Dokumentes."@de ;
             sh:datatype xsd:string
         ] .
 
@@ -265,7 +265,7 @@ gx:DataAccountExportShape
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:description "type of data support: digital, physical."@en,
-            "type of data support: digital, physical."@de ;
+            "Typ des Zugriffs auf die Daten: digital, physisch"@de ;
             sh:in ( "digital" "physical" )
         ] ;
     sh:property
@@ -279,5 +279,5 @@ gx:DataAccountExportShape
             sh:pattern "^\\w+/[-+.\\w]+$" ;
             sh:flags "i" ;
             sh:message "type of Media Types (formerly known as MIME types) as defined by the IANA."@en
-            "type of Media Types (formerly known as MIME types) as defined by the IANA."@de ;
+            "Medientyp (früher bekannt als MIME Typ) wie von der IANA definiert."@de ;
         ] .

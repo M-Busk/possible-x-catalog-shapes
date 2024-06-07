@@ -15,7 +15,7 @@ gx:LegalParticipantShape
             sh:path gx:legalRegistrationNumber ;
             sh:class gx:legalRegistrationNumber ;
             sh:nodeKind sh:IRI ;
-            sh:description "Country's registration number, which identifies one specific entity. Valid formats are local, EUID, EORI, vatID, leiCode."@de,
+            sh:description "Gesetzliche Registrierungsnummer, welche eine bestimmte Entität identifiziert."@de,
             "Country's registration number, which identifies one specific entity. Valid formats are local, EUID, EORI, vatID, leiCode."@en ;
             sh:minCount 1 ;
             sh:maxCount 1 ; # added by MERLOT
@@ -24,7 +24,7 @@ gx:LegalParticipantShape
         ],
         [
             sh:path gx:parentOrganization ;
-            sh:description "A list of resolvable links to Gaia-X Credentials of participants that this entity is a subOrganization of, if any."@de,
+            sh:description "Eine Liste von Links zu Gaia-X Credentials von Teilnehmern, von denen diese Entität eine Unterorganisation ist, falls zutreffend."@de,
             "A list of resolvable links to Gaia-X Credentials of participants that this entity is a subOrganization of, if any."@en ;
             sh:nodeKind sh:IRI ;
             sh:name "Mutterorganisation" ;
@@ -32,10 +32,10 @@ gx:LegalParticipantShape
         ],
         [
             sh:path gx:subOrganization ;
-            sh:description "A list of resolvable links to Gaia-X Credentials of participants with a legal mandate on this entity, e.g., as a subsidiary."@de,
+            sh:description "Eine Liste von Links zu Gaia-X Credentials von Teilnehmern mit einem rechtlichen Mandat über diese Entität, falls zutreffend."@de,
             "A list of resolvable links to Gaia-X Credentials of participants with a legal mandate on this entity, e.g., as a subsidiary."@en ;
             sh:nodeKind sh:IRI ;
-            sh:name "Unterorganisation" ;
+            sh:name "Tochterorganisation" ;
             sh:order 3 ;
         ],
         # Address from Tagus is replaced by VCARD from Loire below
@@ -57,7 +57,7 @@ gx:LegalParticipantShape
         #    sh:order 3 ;
         #    sh:path gx:parentOrganizationOf 
         #],
-        [   sh:description "The full legal address of the organization."@de,
+        [   sh:description "Die volle rechtsgültige Adresse dieser Organisation."@de,
         "The full legal address of the organization."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -67,7 +67,7 @@ gx:LegalParticipantShape
             sh:path gx:legalAddress ;
             sh:name "Rechtsgültige Adresse" ;
         ],
-        [   sh:description "Full physical location of the headquarter of the organization."@de,
+        [   sh:description "Die volle physische Adresse des Hauptsitzes dieser Organisation."@de,
         "Full physical location of the headquarter of the organization."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -84,7 +84,7 @@ gx:LegalParticipantShape
         #    sh:path gx:subOrganisationOf 
         #],
         [   sh:datatype xsd:string ;
-            sh:description "A human readable name of the entity."@de,
+            sh:description "(Kurzer) Name dieser Organisation"@de,
             "A human readable name of the entity."@en ;
             sh:minCount 1 ; # added by MERLOT
             sh:maxCount 1 ;
@@ -102,7 +102,7 @@ gx:LegalParticipantShape
         #    sh:path gx:registrationNumber 
         #],
         [   sh:datatype xsd:string ;
-            sh:description "A free text description of the entity."@de,
+            sh:description "Eine Freitext-Beschreibung dieser Entität."@de,
             "A free text description of the entity."@en ;
             sh:maxCount 1 ;
             sh:name "Beschreibung" ;
@@ -114,10 +114,10 @@ gx:LegalParticipantShape
 # Loire development base
 vcard:Address a sh:NodeShape ;
     sh:closed false ;
-    sh:description "Full address of the entity."@de,
+    sh:description "Vollständige Adresse der Entität."@de,
     "Full address of the entity."@en ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Country code in ISO 3166-1 alpha2, alpha-3 or numeric format."@de,
+    sh:property [ sh:description "Ländercode im ISO 3166-1 alpha2, alpha-3 oder numerischen Format."@de,
     "Country code in ISO 3166-1 alpha2, alpha-3 or numeric format."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -131,7 +131,7 @@ vcard:Address a sh:NodeShape ;
             sh:name "Ländercode" ;
         ],
         [ sh:datatype xsd:string ;
-            sh:description "String of a street-address"@de,
+            sh:description "Postleitzahl der Adresse"@de,
             "String of a street-address"@en ;
             sh:maxCount 1 ;
             sh:order 3 ;
@@ -139,7 +139,7 @@ vcard:Address a sh:NodeShape ;
             sh:name "Postleitzahl" ;
         ],
         [ sh:datatype xsd:string ;
-            sh:description "The v:locality property specifies the locality (e.g., city) of a postal address."@de,
+            sh:description "Die Örtlichkeit (z.B. Stadt) der Adresse."@de,
             "The v:locality property specifies the locality (e.g., city) of a postal address."@en ;
             sh:maxCount 1 ;
             sh:order 4 ;
@@ -147,12 +147,12 @@ vcard:Address a sh:NodeShape ;
             sh:name "Stadt" ;
         ],
         [ sh:datatype xsd:string ;
-            sh:description "the street address of a postal address"@de,
+            sh:description "Straßenanschrift der Adresse"@de,
             "the street address of a postal address"@en ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path vcard:street-address ;
-            sh:name "Straßenadresse" ;
+            sh:name "Straßenanschrift" ;
         ],
         # from Tagus
         [
@@ -161,7 +161,7 @@ vcard:Address a sh:NodeShape ;
             sh:minCount 1 ;
             sh:maxCount 1 ;  # added by MERLOT
             sh:pattern "^[a-zA-Z]{2}-(?:[a-zA-Z]{1,3}|[0-9]{1,3})$" ;
-            sh:description "an ISO 3166-2 format value is expected."@de,
+            sh:description "Ein Wert im ISO 3166-2 Format wird erwartet."@de,
             "an ISO 3166-2 format value is expected."@en ;
             sh:name "Länderunterteilungscode" ;
             sh:order 1 ;
