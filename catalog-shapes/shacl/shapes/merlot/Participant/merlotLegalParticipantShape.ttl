@@ -16,15 +16,18 @@ merlot:MerlotLegalParticipantShape
         [   sh:datatype xsd:string ;
             sh:description "Legal name of the entity." ;
             sh:maxCount 1 ;
-            sh:name "legal name" ;
+            sh:name "legal name"@en,
+            "Rechtlich eingetragener Name"@de ;
             sh:order 5 ;
-            sh:path merlot:legalName 
+            sh:path merlot:legalName ;
         ],
         [
             sh:path merlot:termsAndConditions ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:node merlot:ParticipantTermsAndConditionsShape ;
+            sh:name "terms and conditions"@en
+            "Geschäftsbedingungen"@de ;
         ],
         [   skos:example "'L.L.C, GmbH'" ;
             sh:datatype xsd:string ;
@@ -44,7 +47,8 @@ merlot:ParticipantTermsAndConditionsShape
     sh:property
         [
             sh:path merlot:URL ;
-            sh:name "URL" ;
+            sh:name "URL"@en,
+            "URL"@de ;
             sh:description "a resolvable link to document" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
@@ -53,7 +57,8 @@ merlot:ParticipantTermsAndConditionsShape
     sh:property
         [
             sh:path merlot:hash ;
-            sh:name "hash" ;
+            sh:name "hash"@en,
+            "Hash"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:description "sha256 hash of the above document." ;
