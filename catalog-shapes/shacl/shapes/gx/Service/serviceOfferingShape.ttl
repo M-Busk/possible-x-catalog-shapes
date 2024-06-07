@@ -20,6 +20,7 @@ gx:ServiceOfferingShape
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
+            sh:order 0 ;
         ] ; # TODO add alternativePath to support all type of Participant
     sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
     sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
@@ -32,7 +33,8 @@ gx:ServiceOfferingShape
             sh:description
                 "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
                 "Geschäftsbedingungen zu diesem Angebot."@de ;
-            sh:node gx:SOTermsAndConditionsShape
+            sh:node gx:SOTermsAndConditionsShape ;
+            sh:order 6 ;
         ] ;
     sh:property
         [
@@ -43,7 +45,8 @@ gx:ServiceOfferingShape
             sh:description
                 "a list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)."@en,
                 "Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
-            sh:datatype xsd:string
+            sh:datatype xsd:string ;
+            sh:order 4;
         ] ;
     sh:property
         [
@@ -55,7 +58,8 @@ gx:ServiceOfferingShape
             sh:message
                 "Refer to https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes"@en,
                 "Siehe https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes"@de ;
-            sh:datatype xsd:string
+            sh:datatype xsd:string ;
+            sh:order 3 ;
         ] ;
     sh:property
         [
@@ -66,6 +70,7 @@ gx:ServiceOfferingShape
             sh:description "list of methods to export data from your user’s account out of the service"@en,
             "Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
             sh:node gx:DataAccountExport ;
+            sh:order 5 ;
         ] ;
     sh:property
         # Loire development
@@ -82,7 +87,7 @@ gx:ServiceOfferingShape
             sh:maxCount 1 ;
             sh:name "name"@en,
             "Name"@de ;
-            sh:order 11 ;
+            sh:order 1 ;
             sh:path gx:name 
         ],
         #[   sh:datatype xsd:string ;
@@ -150,7 +155,7 @@ gx:ServiceOfferingShape
             sh:maxCount 1 ;
             sh:name "description"@en,
             "Beschreibung"@de ;
-            sh:order 12 ;
+            sh:order 2 ;
             sh:path gx:description 
         ] .
         #[   sh:description "List of Resource references where service is hosted and can be instantiated. Can refer to availabilty zones, data centers, regions, etc." ;
@@ -278,6 +283,6 @@ gx:DataAccountExportShape
             sh:maxCount 1 ;
             sh:pattern "^\\w+/[-+.\\w]+$" ;
             sh:flags "i" ;
-            sh:message "type of Media Types (formerly known as MIME types) as defined by the IANA."@en
+            sh:description "type of Media Types (formerly known as MIME types) as defined by the IANA."@en,
             "Medientyp (früher bekannt als MIME Typ) wie von der IANA definiert."@de ;
         ] .
