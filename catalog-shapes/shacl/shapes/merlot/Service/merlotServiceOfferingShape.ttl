@@ -19,7 +19,7 @@ merlot:MerlotServiceOfferingShape
                 "Example Costs"@en ;
             sh:maxCount 1 ;
             sh:name "Beispielkosten" ;
-            sh:order 101 ;
+            sh:order 1 ;
             sh:path merlot:exampleCosts 
         ],
         [   skos:example "'1 hour(s)'" ;
@@ -28,7 +28,7 @@ merlot:MerlotServiceOfferingShape
             sh:name "Laufzeit-Option" ;
             sh:minCount 1 ;
             sh:node merlot:RuntimeShape ;
-            sh:order 199 ;
+            sh:order 2 ;
             sh:path merlot:runtimeOption 
         ],
         [   skos:example "'01.01.2023'" ;
@@ -38,7 +38,7 @@ merlot:MerlotServiceOfferingShape
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "Erstelldatum" ;
-            sh:order 998 ;
+            sh:order 0 ;
             sh:path merlot:creationDate 
         ],
         [   skos:example "'true'" ;
@@ -49,7 +49,7 @@ merlot:MerlotServiceOfferingShape
             sh:minCount 1 ;
 			sh:hasValue true ;
             sh:name "Merlot AGB akzeptieren" ;
-            sh:order 999 ;
+            sh:order 3 ;
             sh:path merlot:merlotTermsAndConditionsAccepted 
         ] .
 
