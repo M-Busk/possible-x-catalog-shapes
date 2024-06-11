@@ -11,6 +11,7 @@ RUN apk add --no-cache python3 py3-rdflib &&\
 COPY gxfs-catalog/truncate_schemas.patch /truncate_schemas.patch
 COPY gxfs-catalog/optional_registry.patch /optional_registry.patch
 COPY gxfs-catalog/ignore-compliance-signature.patch /ignore-compliance-signature.patch
+COPY gxfs-catalog/ignore-compliance-signature.patch /ignore-compliance-claims.patch
 
 RUN apk add --no-cache git maven &&\
     git clone -b main https://gitlab.eclipse.org/eclipse/xfsc/cat/fc-service.git &&\
@@ -19,6 +20,7 @@ RUN apk add --no-cache git maven &&\
 	git apply /truncate_schemas.patch &&\
     git apply /optional_registry.patch &&\
     git apply /ignore-compliance-signature.patch &&\
+    git apply /ignore-compliance-claims.patch &&\
     rm -rf fc-service-core/src/main/resources/defaultschema/ontology &&\
     rm fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
     cp /catalog-shapes/shacl/shapes/mergedShapes.ttl fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
