@@ -11,7 +11,7 @@ RUN apk add --no-cache python3 py3-rdflib &&\
 COPY gxfs-catalog/truncate_schemas.patch /truncate_schemas.patch
 COPY gxfs-catalog/optional_registry.patch /optional_registry.patch
 COPY gxfs-catalog/ignore-compliance-signature.patch /ignore-compliance-signature.patch
-COPY gxfs-catalog/ignore-compliance-signature.patch /ignore-compliance-claims.patch
+COPY gxfs-catalog/ignore-compliance-claims.patch /ignore-compliance-claims.patch
 
 RUN apk add --no-cache git maven &&\
     git clone -b main https://gitlab.eclipse.org/eclipse/xfsc/cat/fc-service.git &&\
