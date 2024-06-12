@@ -20,7 +20,6 @@ RUN apk add --no-cache git maven &&\
 	git apply /truncate_schemas.patch &&\
     git apply /optional_registry.patch &&\
     git apply /ignore-compliance-signature.patch &&\
-    git apply /ignore-compliance-claims.patch &&\
     rm -rf fc-service-core/src/main/resources/defaultschema/ontology &&\
     rm fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
     cp /catalog-shapes/shacl/shapes/mergedShapes.ttl fc-service-core/src/main/resources/defaultschema/shacl/mergedShapesGraph.ttl &&\
