@@ -14,7 +14,7 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..7cf3de41 100644
+index d65cb977..aae3938b 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 @@ -52,7 +52,23 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
@@ -23,12 +23,12 @@ index d65cb977..7cf3de41 100644
          for (JsonValue cs: css) {
 -            Document csDoc = JsonDocument.of(cs.asJsonObject());
 +            JsonObject csObj = cs.asJsonObject();
-+            log.info("Got CS: {}", csObj);
 +            if (csObj.containsKey("type")) {
 +                boolean isComplianceCredential = false;
 +                try {
 +                    for (JsonValue value : csObj.getJsonArray("type")) {
-+                        isComplianceCredential |= value.toString().equals("gx:compliance");
++                        isComplianceCredential |= value.toString()
++                                .equals("https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#compliance");
 +                    }
 +                } catch (Exception e) {
 +                        log.warn("Encountered error during VC type check: {}", e.getMessage());
