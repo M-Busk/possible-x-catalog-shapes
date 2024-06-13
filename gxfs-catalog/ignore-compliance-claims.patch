@@ -14,7 +14,7 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..7bb82b2c 100644
+index d65cb977..250bf867 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 @@ -52,7 +52,24 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
@@ -23,7 +23,7 @@ index d65cb977..7bb82b2c 100644
          for (JsonValue cs: css) {
 -            Document csDoc = JsonDocument.of(cs.asJsonObject());
 +            JsonObject csObj = cs.asJsonObject();
-+            if (csObj.containsKey("type")) {
++            if (csObj.containsKey("@type")) {
 +                boolean isComplianceCredential = false;
 +                try {
 +                    for (JsonValue value : csObj.getJsonArray("@type")) {
