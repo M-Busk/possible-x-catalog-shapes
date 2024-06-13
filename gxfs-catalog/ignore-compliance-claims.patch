@@ -14,7 +14,7 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..deee072d 100644
+index d65cb977..7bb82b2c 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 @@ -52,7 +52,24 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
@@ -26,7 +26,7 @@ index d65cb977..deee072d 100644
 +            if (csObj.containsKey("type")) {
 +                boolean isComplianceCredential = false;
 +                try {
-+                    for (JsonValue value : csObj.getJsonArray("type")) {
++                    for (JsonValue value : csObj.getJsonArray("@type")) {
 +                        log.info("Found type value: {}", value.toString());
 +                        isComplianceCredential |= value.toString()
 +                                .equals("https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#compliance");
