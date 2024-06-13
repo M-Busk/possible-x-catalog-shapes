@@ -14,7 +14,7 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..c835ce51 100644
+index d65cb977..b04e049f 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 @@ -52,7 +52,17 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
@@ -29,8 +29,8 @@ index d65cb977..c835ce51 100644
 +                    log.info("Skipping claims from CS of type compliance");
 +                    continue;
 +                }
-+            } catch (Exception ignored) {
-+                // e.g. type not castable, ignore...
++            } catch (Exception e) {
++                log.warn("Encountered error during VC type check: {}", e.getMessage());
 +            }
 +            Document csDoc = JsonDocument.of(csObj);
              RdfDataset rdf = JsonLd.toRdf(csDoc).produceGeneralizedRdf(true).get();
