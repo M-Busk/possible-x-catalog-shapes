@@ -14,23 +14,29 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..b04e049f 100644
+index d65cb977..7cf3de41 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-@@ -52,7 +52,17 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
+@@ -52,7 +52,23 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
      private void addClaims(List<SdClaim> claims, JsonObject vc) throws JsonLdError {
          JsonArray css = vc.getJsonArray("https://www.w3.org/2018/credentials#credentialSubject");
          for (JsonValue cs: css) {
 -            Document csDoc = JsonDocument.of(cs.asJsonObject());
 +            JsonObject csObj = cs.asJsonObject();
-+            try {
-+                if ((csObj.containsKey("type") && csObj.getString("type").equals("gx:compliance"))
-+                        || (csObj.containsKey("@type") && csObj.getString("@type").equals("gx:compliance"))) {
++            log.info("Got CS: {}", csObj);
++            if (csObj.containsKey("type")) {
++                boolean isComplianceCredential = false;
++                try {
++                    for (JsonValue value : csObj.getJsonArray("type")) {
++                        isComplianceCredential |= value.toString().equals("gx:compliance");
++                    }
++                } catch (Exception e) {
++                        log.warn("Encountered error during VC type check: {}", e.getMessage());
++                }
++                if (isComplianceCredential) {
 +                    log.info("Skipping claims from CS of type compliance");
 +                    continue;
 +                }
-+            } catch (Exception e) {
-+                log.warn("Encountered error during VC type check: {}", e.getMessage());
 +            }
 +            Document csDoc = JsonDocument.of(csObj);
              RdfDataset rdf = JsonLd.toRdf(csDoc).produceGeneralizedRdf(true).get();
