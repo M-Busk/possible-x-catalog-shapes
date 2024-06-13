@@ -69,7 +69,7 @@ gx:ServiceOfferingShape
             sh:minCount 1 ;
             sh:description "list of methods to export data from your user’s account out of the service"@en,
             "Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
-            sh:node gx:DataAccountExport ;
+            sh:node gx:DataAccountExportShape ;
             sh:order 5 ;
         ] ;
     sh:property

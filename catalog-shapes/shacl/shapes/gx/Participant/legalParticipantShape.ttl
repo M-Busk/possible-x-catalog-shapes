@@ -62,7 +62,7 @@ gx:LegalParticipantShape
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "legal address" ;
-            sh:node vcard:Address ;
+            sh:node vcard:AddressShape ;
             sh:order 5 ;
             sh:path gx:legalAddress ;
             sh:name "Rechtsgültige Adresse" ;
@@ -71,7 +71,7 @@ gx:LegalParticipantShape
         "Full physical location of the headquarter of the organization."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:node vcard:Address ;
+            sh:node vcard:AddressShape ;
             sh:order 6 ;
             sh:path gx:headquarterAddress ;
             sh:name "Adresse des Hauptsitzes" ;
