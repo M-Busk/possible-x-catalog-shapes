@@ -112,7 +112,7 @@ gx:LegalParticipantShape
         ] .
 
 # Loire development base
-vcard:Address a sh:NodeShape ;
+vcard:AddressShape a sh:NodeShape ;
     sh:closed false ;
     sh:description "Vollständige Adresse der Entität."@de,
     "Full address of the entity."@en ;
