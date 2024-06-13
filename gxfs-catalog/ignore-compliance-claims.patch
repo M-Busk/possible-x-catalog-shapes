@@ -14,19 +14,23 @@ index 033984ea..35bb2da1 100644
                  for (RdfNQuad nquad: cs.toDataset().toList()) {
                      log.debug("extractClaims; got NQuad: {}", nquad);
 diff --git a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-index d65cb977..aae51f89 100644
+index d65cb977..c835ce51 100644
 --- a/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
 +++ b/fc-service-core/src/main/java/eu/xfsc/fc/core/service/verification/claims/TitaniumClaimExtractor.java
-@@ -52,7 +52,13 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
+@@ -52,7 +52,17 @@ public class TitaniumClaimExtractor implements ClaimExtractor {
      private void addClaims(List<SdClaim> claims, JsonObject vc) throws JsonLdError {
          JsonArray css = vc.getJsonArray("https://www.w3.org/2018/credentials#credentialSubject");
          for (JsonValue cs: css) {
 -            Document csDoc = JsonDocument.of(cs.asJsonObject());
 +            JsonObject csObj = cs.asJsonObject();
-+            if (csObj.getString("type").equals("gx:compliance")
-+                    || csObj.getString("@type").equals("gx:compliance")) {
-+                log.info("Skipping claims from CS of type compliance");
-+                continue;
++            try {
++                if ((csObj.containsKey("type") && csObj.getString("type").equals("gx:compliance"))
++                        || (csObj.containsKey("@type") && csObj.getString("@type").equals("gx:compliance"))) {
++                    log.info("Skipping claims from CS of type compliance");
++                    continue;
++                }
++            } catch (Exception ignored) {
++                // e.g. type not castable, ignore...
 +            }
 +            Document csDoc = JsonDocument.of(csObj);
              RdfDataset rdf = JsonLd.toRdf(csDoc).produceGeneralizedRdf(true).get();
