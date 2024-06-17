@@ -14,7 +14,7 @@ gx:ServiceOfferingShape
         [
             sh:path gx:providedBy ;
             sh:name "provided by"@en,
-            "Anbieter"@de ;
+            "Service Bereitsteller"@de ;
             sh:description "a resolvable link to the participant self-description providing the service."@en,
             "Ein auflösbarer Link zum Teilnehmer, der dieses Angebot zur Verfügung stellt."@de ;
             sh:minCount 1 ;
@@ -28,7 +28,7 @@ gx:ServiceOfferingShape
         [
             sh:path gx:termsAndConditions ;
             sh:name "terms & conditions"@en,
-            "Geschäftsbedingungen"@de ;
+            "Serviceangebotspezifische Geschäftsbedingungen"@de ;
             sh:minCount 2 ; # set to 2 instead of 1 by MERLOT
             sh:description
                 "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
@@ -86,7 +86,7 @@ gx:ServiceOfferingShape
             sh:minCount 1 ; # added by MERLOT
             sh:maxCount 1 ;
             sh:name "name"@en,
-            "Name"@de ;
+            "Servicename"@de ;
             sh:order 1 ;
             sh:path gx:name 
         ],
@@ -154,7 +154,7 @@ gx:ServiceOfferingShape
             "Eine Freitext-Beschreibung des Angebots."@de ;
             sh:maxCount 1 ;
             sh:name "description"@en,
-            "Beschreibung"@de ;
+            "Detaillierte Beschreibung des Services"@de ;
             sh:order 2 ;
             sh:path gx:description 
         ] .
