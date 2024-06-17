@@ -49,19 +49,21 @@ merlot:ParticipantTermsAndConditionsShape
         [
             sh:path merlot:URL ;
             sh:name "URL"@en,
-            "URL"@de ;
+            "Link zum Inhalt"@de ;
             sh:description "a resolvable link to document" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
-            sh:datatype xsd:string
+            sh:order 0 ;
+            sh:datatype xsd:string ;
         ] ;
     sh:property
         [
             sh:path merlot:hash ;
             sh:name "hash"@en,
-            "Hash"@de ;
+            "Hash des Dokuments"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
+            sh:order 1 ;
             sh:description "sha256 hash of the above document." ;
             sh:datatype xsd:string
         ] .
