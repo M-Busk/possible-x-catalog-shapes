@@ -228,9 +228,9 @@ gx:SOTermsAndConditionsShape
         [
             sh:path gx:URL ;
             sh:name "URL"@en,
-            "URL"@de ;
-            sh:description "a resolvable link to document"@en,
             "Link zum Inhalt"@de ;
+            sh:description "a resolvable link to document"@en,
+            "Ein auflösbarer Link zum Inhalt"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:order 0 ;
