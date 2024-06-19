@@ -1,5 +1,5 @@
 # XFSC Federated Catalogue
-This folder contains the build files for the MERLOT-adapted XFSC Federated Catalogue as well as the patches that are used for the MERLOT specific changes.
+This folder contains the build files for the MERLOT-adapted [XFSC Federated Catalogue](https://gitlab.eclipse.org/eclipse/xfsc/cat/fc-service.git) as well as the patches that are used for the MERLOT specific changes.
 
 ## Patches
 
