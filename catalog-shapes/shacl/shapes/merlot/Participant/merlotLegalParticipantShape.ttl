@@ -34,7 +34,7 @@ merlot:MerlotLegalParticipantShape
             sh:datatype xsd:string ;
             sh:description "Rechtsform"@de,
                 "Legal form"@en ;
-            sh:in ( "LLC" "Corporation" "Limited partnership (LP)" "Nonprofit corporation" "Gesellschaft mit beschränkter Haftung (GmbH)" "Aktiengesellschaft (AG)" "Einzelunternehmen" "Gesellschaft bürgerlichen Rechts (GbR)" "Offene Handelsgesellschaft (OHG)" "Kommanditgesellschaft (KG)" "Unternehmergesellschaft (haftungsbeschränkt)" "Sole Trader" "Unincorporated Association" "Partnership" "Limited Partnership" "Trust" "Limited Company" "Limited Liability Partnership (LLP)" "Community Interest Company (CIC)" "Charitable Incorporated Organisation (CIO)" "Co-operative Society (Co-op)" "Community Benefit Society (BenCom)" "other" ) ;
+            sh:in ( "LLC" "Corporation" "Limited partnership (LP)" "Nonprofit corporation" "Gesellschaft mit beschränkter Haftung (GmbH)" "Aktiengesellschaft (AG)" "Einzelunternehmen" "Gesellschaft bürgerlichen Rechts (GbR)" "Offene Handelsgesellschaft (OHG)" "Kommanditgesellschaft (KG)" "Unternehmergesellschaft (haftungsbeschränkt)" "Sole Trader" "Unincorporated Association" "Partnership" "Limited Partnership" "Trust" "Limited Company" "Limited Liability Partnership (LLP)" "Community Interest Company (CIC)" "Charitable Incorporated Organisation (CIO)" "Co-operative Society (Co-op)" "Community Benefit Society (BenCom)" "Societas Europea (SE)" "sonstiges" ) ;
             sh:maxCount 1 ;
             sh:name "Rechtsform" ;
             sh:order 1 ;
