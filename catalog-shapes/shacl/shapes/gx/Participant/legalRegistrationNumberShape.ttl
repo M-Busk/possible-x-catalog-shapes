@@ -32,7 +32,7 @@ gx:legalRegistrationNumberShape
     #        sh:maxCount 1 ;  # added by MERLOT
     #        sh:datatype xsd:string ;
     #        sh:minLength 3 ;
-    #        sh:name "Steuernummer (taxID)" ;
+    #        sh:name "Steuernummer" ;
     #        sh:order 3 ;
     #    ] ;
     #sh:property
@@ -41,7 +41,7 @@ gx:legalRegistrationNumberShape
     #        sh:maxCount 1 ;  # added by MERLOT
     #        sh:datatype xsd:string ;
     #        sh:minLength 3 ;
-    #        sh:name "EUID (EUID)" ;
+    #        sh:name "EUID" ;
     #        sh:order 1 ;
     #    ] ;
     sh:property
@@ -50,7 +50,7 @@ gx:legalRegistrationNumberShape
             sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
-            sh:name "EORI (EORI)" ;
+            sh:name "EORI" ;
             sh:order 2 ;
         ] ;
     sh:property
@@ -59,7 +59,7 @@ gx:legalRegistrationNumberShape
             sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
-            sh:name "Umsatzsteuer-Identifikationsnummer (vatID)" ;
+            sh:name "Umsatzsteuer-Identifikationsnummer" ;
             sh:order 4 ;
         ] ;
     sh:property
@@ -68,7 +68,7 @@ gx:legalRegistrationNumberShape
             sh:maxCount 1 ;  # added by MERLOT
             sh:datatype xsd:string ;
             sh:minLength 3 ;
-            sh:name "LEI-Code (leiCode)" ;
+            sh:name "LEI-Code" ;
             sh:order 0 ;
         ] ;
     sh:or

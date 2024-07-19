@@ -32,14 +32,14 @@ merlot:MerlotServiceOfferingShape
             sh:description "Beispielkosten"@de,
                 "Example Costs"@en ;
             sh:maxCount 1 ;
-            sh:name "Beispielkosten (exampleCosts)" ;
+            sh:name "Beispielkosten" ;
             sh:order 1 ;
             sh:path merlot:exampleCosts 
         ],
         [   skos:example "'1 hour(s)'" ;
             sh:description "Option für eine Laufzeit des Serviceangebots"@de,
                 "Option for a runtime of the Service Offering"@en ;
-            sh:name "Laufzeit-Option (runtimeOption)" ;
+            sh:name "Laufzeit-Option" ;
             sh:minCount 1 ;
             sh:node merlot:RuntimeShape ;
             sh:order 2 ;
@@ -51,7 +51,7 @@ merlot:MerlotServiceOfferingShape
                 "Creation Date"@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Erstelldatum (creationDate)" ;
+            sh:name "Erstelldatum" ;
             sh:order 0 ;
             sh:path merlot:creationDate 
         ],
@@ -62,7 +62,7 @@ merlot:MerlotServiceOfferingShape
             sh:maxCount 1 ;
             sh:minCount 1 ;
 			sh:hasValue true ;
-            sh:name "Merlot AGB akzeptieren (merlotTermsAndConditionsAccepted)" ;
+            sh:name "Merlot AGB akzeptieren" ;
             sh:order 3 ;
             sh:path merlot:merlotTermsAndConditionsAccepted 
         ] .
@@ -78,7 +78,7 @@ merlot:RuntimeShape a sh:NodeShape ;
                 "Number part of the runtime. Set to 0 for 'unlimited'."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Anzahl-Teil der Laufzeit (runtimeCount)" ;
+            sh:name "Anzahl-Teil der Laufzeit" ;
             sh:order 1 ;
             sh:path merlot:runtimeCount ],
         [ skos:example "'hour(s)'" ;
@@ -88,7 +88,7 @@ merlot:RuntimeShape a sh:NodeShape ;
             sh:in ( "hour(s)" "day(s)" "week(s)" "month(s)" "year(s)" "unlimited" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Maß-Teil der Laufzeit (runtimeMeasurement)" ;
+            sh:name "Maß-Teil der Laufzeit" ;
             sh:order 2 ;
             sh:path merlot:runtimeMeasurement ] ;
     sh:targetClass merlot:Runtime .

@@ -34,7 +34,7 @@ merlot:MerlotDataDeliveryServiceOfferingShape
             sh:in ( "Push" "Pull" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Datentransferart (dataTransferType)" ;
+            sh:name "Datentransferart" ;
             sh:order 0 ;
             sh:path merlot:dataTransferType 
         ],
@@ -45,14 +45,14 @@ merlot:MerlotDataDeliveryServiceOfferingShape
             sh:in ( "Download" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Datenzugriffsart (dataAccessType)" ;
+            sh:name "Datenzugriffsart" ;
             sh:order 1 ;
             sh:path merlot:dataAccessType 
         ],
         [   skos:example "'up to 5'" ;
             sh:description "Option für die zulässige Anzahl von Datenübertragungen"@de,
                 "Option for allowed count of data exchanges"@en ;
-            sh:name "Datenaustauschanzahl-Option (exchangeCountOption)" ;
+            sh:name "Datenaustauschanzahl-Option" ;
             sh:node merlot:DataExchangeCountShape ;
             sh:minCount 1 ;
             sh:order 2 ;
@@ -69,7 +69,7 @@ merlot:DataExchangeCountShape a sh:NodeShape ;
                 "Number of data exchanges up to which the transfer is allowed. Set to 0 for 'unlimited'."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Option für maximale Anzahl an Datenaustauschen (exchangeCountUpTo)" ;
+            sh:name "Option für maximale Anzahl an Datenaustauschen" ;
             sh:order 1 ;
             sh:path merlot:exchangeCountUpTo ] ;
     sh:targetClass merlot:DataExchangeCount .

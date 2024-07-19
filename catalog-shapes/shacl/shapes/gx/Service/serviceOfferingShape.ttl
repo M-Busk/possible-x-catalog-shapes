@@ -27,8 +27,8 @@ gx:ServiceOfferingShape
     sh:property
         [
             sh:path gx:providedBy ;
-            sh:name "provided by (providedBy)"@en,
-            "Service Bereitsteller (providedBy)"@de ;
+            sh:name "provided by"@en,
+            "Service Bereitsteller"@de ;
             sh:description "a resolvable link to the participant self-description providing the service."@en,
             "Ein auflösbarer Link zum Teilnehmer, der dieses Angebot zur Verfügung stellt."@de ;
             sh:minCount 1 ;
@@ -41,8 +41,8 @@ gx:ServiceOfferingShape
     sh:property
         [
             sh:path gx:termsAndConditions ;
-            sh:name "terms & conditions (termsAndConditions)"@en,
-            "Serviceangebotspezifische Geschäftsbedingungen (termsAndConditions)"@de ;
+            sh:name "terms & conditions"@en,
+            "Serviceangebotspezifische Geschäftsbedingungen"@de ;
             sh:minCount 2 ; # set to 2 instead of 1 by MERLOT
             sh:description
                 "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
@@ -53,8 +53,8 @@ gx:ServiceOfferingShape
     sh:property
         [
             sh:path gx:policy ;
-            sh:name "policy (policy)"@en,
-            "Police (policy)"@de ;
+            sh:name "policy"@en,
+            "Police"@de ;
             sh:minCount 1 ;
             sh:description
                 "a list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)."@en,
@@ -65,8 +65,8 @@ gx:ServiceOfferingShape
     sh:property
         [
             sh:path gx:dataProtectionRegime ;
-            sh:name "data protection regime (dataProtectionRegime)"@en,
-            "Datenschutzsregelung (dataProtectionRegime)"@de ;
+            sh:name "data protection regime"@en,
+            "Datenschutzsregelung"@de ;
             sh:description "a list of data protection regime" ;
             sh:in ( "GDPR2016" "LGPD2019" "PDPA2012" "CCPA2018" "VCDPA2021" ) ;
             sh:message
@@ -78,8 +78,8 @@ gx:ServiceOfferingShape
     sh:property
         [
             sh:path gx:dataAccountExport ;
-            sh:name "data account export (dataAccountExport)"@en,
-            "Datenexportmethode (dataAccountExport)"@de ;
+            sh:name "data account export"@en,
+            "Datenexportmethode"@de ;
             sh:minCount 1 ;
             sh:description "list of methods to export data from your user’s account out of the service"@en,
             "Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
@@ -99,8 +99,8 @@ gx:ServiceOfferingShape
             "Name des Angebots."@de ;
             sh:minCount 1 ; # added by MERLOT
             sh:maxCount 1 ;
-            sh:name "name (name)"@en,
-            "Servicename (name)"@de ;
+            sh:name "name"@en,
+            "Servicename"@de ;
             sh:order 1 ;
             sh:path gx:name 
         ],
@@ -167,8 +167,8 @@ gx:ServiceOfferingShape
             sh:description "A free text description of the entity."@en,
             "Eine Freitext-Beschreibung des Angebots."@de ;
             sh:maxCount 1 ;
-            sh:name "description (description)"@en,
-            "Detaillierte Beschreibung des Services (description)"@de ;
+            sh:name "description"@en,
+            "Detaillierte Beschreibung des Services"@de ;
             sh:order 2 ;
             sh:path gx:description 
         ] .
@@ -186,8 +186,8 @@ gx:ServiceOfferingShape
 
 gx:dependsOnExists
     sh:path gx:dependsOn ;
-    sh:name "depends on (dependsOn)"@en,
-    "Abhängig von (dependsOn)"@de ;
+    sh:name "depends on"@en,
+    "Abhängig von"@de ;
     sh:description
         "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
         "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
@@ -199,8 +199,8 @@ gx:dependsOnExists
 
 gx:dependsOnNotExists
     sh:path gx:dependsOn ;  
-    sh:name "depends on (dependsOn)"@en,
-    "Abhängig von (dependsOn)"@de ;
+    sh:name "depends on"@en,
+    "Abhängig von"@de ;
     sh:description
         "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
         "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
@@ -209,8 +209,8 @@ gx:dependsOnNotExists
 
 gx:aggregationOfExists
     sh:path gx:aggregationOf ;
-    sh:name "aggregation of (aggregationOf)"@en,
-    "Zusammenstellung von (aggregationOf)"@de ;
+    sh:name "aggregation of"@en,
+    "Zusammenstellung von"@de ;
     sh:description
         "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
         "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
@@ -227,8 +227,8 @@ gx:aggregationOfExists
 
 gx:aggregationOfNotExists
     sh:path gx:aggregationOf ;  
-    sh:name "aggregation of (aggregationOf)"@en,
-    "Zusammenstellung von (aggregationOf)"@de ;
+    sh:name "aggregation of"@en,
+    "Zusammenstellung von"@de ;
     sh:description
         "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
         "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
@@ -241,8 +241,8 @@ gx:SOTermsAndConditionsShape
     sh:property
         [
             sh:path gx:URL ;
-            sh:name "URL (URL)"@en,
-            "Link zum Inhalt (URL)"@de ;
+            sh:name "URL"@en,
+            "Link zum Inhalt"@de ;
             sh:description "a resolvable link to document"@en,
             "Ein auflösbarer Link zum Inhalt"@de ;
             sh:minCount 1 ;
@@ -253,8 +253,8 @@ gx:SOTermsAndConditionsShape
     sh:property
         [
             sh:path gx:hash ;
-            sh:name "hash (hash)"@en,
-            "Hash des Dokuments (hash)"@de ;
+            sh:name "hash"@en,
+            "Hash des Dokuments"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -271,8 +271,8 @@ gx:DataAccountExportShape
         [
             sh:path gx:requestType ;
             sh:datatype xsd:string ;
-            sh:name "Request type (requestType)"@en,
-            "Anfragetyp (requestType)"@de ;
+            sh:name "Request type"@en,
+            "Anfragetyp"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:in ( "API" "email" "webform" "unregisteredLetter" "registeredLetter" "supportCenter" )
@@ -281,8 +281,8 @@ gx:DataAccountExportShape
         [
             sh:path gx:accessType ;
             sh:datatype xsd:string ;
-            sh:name "Access type (accessType)"@en,
-            "Zugriffstyp (accessType)"@de ;
+            sh:name "Access type"@en,
+            "Zugriffstyp"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:description "type of data support: digital, physical."@en,
@@ -293,10 +293,12 @@ gx:DataAccountExportShape
         [
             sh:path gx:formatType ;
             sh:datatype xsd:string ;
-            sh:name "Datenformat (formatType)" ;
+            sh:name "Format type"@en,
+            "Datenformat"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:pattern "^\\w+/[-+.\\w]+$" ;
+            sh:flags "i" ;
             skos:example "z.B. 'application/json', 'text/plain', 'image/png'" ;
             sh:description "type of Media Types (formerly known as MIME types) as defined by the IANA, see https://de.wikipedia.org/wiki/Internet_Media_Type ."@en,
             "Medientyp (früher bekannt als MIME Typ) wie von der IANA definiert, z.B. 'application/json' oder 'text/plain'. siehe https://de.wikipedia.org/wiki/Internet_Media_Type ."@de ;

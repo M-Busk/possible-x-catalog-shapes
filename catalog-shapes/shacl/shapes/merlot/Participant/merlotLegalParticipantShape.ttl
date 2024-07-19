@@ -30,8 +30,8 @@ merlot:MerlotLegalParticipantShape
         [   sh:datatype xsd:string ;
             sh:description "Legal name of the entity." ;
             sh:maxCount 1 ;
-            sh:name "legal name (legalName)"@en,
-            "Rechtlich eingetragener Name (legalName)"@de ;
+            sh:name "legal name"@en,
+            "Rechtlich eingetragener Name"@de ;
             sh:order 0 ;
             sh:path merlot:legalName ;
         ],
@@ -41,8 +41,8 @@ merlot:MerlotLegalParticipantShape
             sh:maxCount 1 ;
             sh:node merlot:ParticipantTermsAndConditionsShape ;
             sh:order 2 ;
-            sh:name "terms and conditions (termsAndConditions)"@en,
-            "Geschäftsbedingungen (termsAndConditions)"@de ;
+            sh:name "terms and conditions"@en,
+            "Geschäftsbedingungen"@de ;
         ],
         [   skos:example "'L.L.C, GmbH'" ;
             sh:datatype xsd:string ;
@@ -50,7 +50,7 @@ merlot:MerlotLegalParticipantShape
                 "Legal form"@en ;
             sh:in ( "LLC" "Corporation" "Limited partnership (LP)" "Nonprofit corporation" "Gesellschaft mit beschränkter Haftung (GmbH)" "Aktiengesellschaft (AG)" "Einzelunternehmen" "Gesellschaft bürgerlichen Rechts (GbR)" "Offene Handelsgesellschaft (OHG)" "Kommanditgesellschaft (KG)" "Unternehmergesellschaft (haftungsbeschränkt)" "Sole Trader" "Unincorporated Association" "Partnership" "Limited Partnership" "Trust" "Limited Company" "Limited Liability Partnership (LLP)" "Community Interest Company (CIC)" "Charitable Incorporated Organisation (CIO)" "Co-operative Society (Co-op)" "Community Benefit Society (BenCom)" "Societas Europea (SE)" "sonstiges" ) ;
             sh:maxCount 1 ;
-            sh:name "Rechtsform (legalForm)" ;
+            sh:name "Rechtsform" ;
             sh:order 1 ;
             sh:path merlot:legalForm 
         ] .
@@ -62,8 +62,8 @@ merlot:ParticipantTermsAndConditionsShape
     sh:property
         [
             sh:path merlot:URL ;
-            sh:name "URL (URL)"@en,
-            "Link zum Inhalt (URL)"@de ;
+            sh:name "URL"@en,
+            "Link zum Inhalt"@de ;
             sh:description "a resolvable link to document" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
@@ -73,8 +73,8 @@ merlot:ParticipantTermsAndConditionsShape
     sh:property
         [
             sh:path merlot:hash ;
-            sh:name "hash (hash)"@en,
-            "Hash des Dokuments (hash)"@de ;
+            sh:name "hash"@en,
+            "Hash des Dokuments"@de ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:order 1 ;
