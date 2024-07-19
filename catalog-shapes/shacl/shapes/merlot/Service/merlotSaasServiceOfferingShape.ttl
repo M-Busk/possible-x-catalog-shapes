@@ -32,14 +32,14 @@ merlot:MerlotSaasServiceOfferingShape
             sh:description "Anforderungen an die Hardware"@de,
                 "Hardware Requirements"@en ;
             sh:maxCount 1 ;
-            sh:name "Anforderungen an die Hardware" ;
+            sh:name "Anforderungen an die Hardware (hardwareRequirements)" ;
             sh:order 0 ;
             sh:path merlot:hardwareRequirements 
         ],
         [   skos:example "'up to 5'" ;
             sh:description "Option für die zulässige Anzahl von Benutzern der Software"@de,
                 "Option for allowed count of users for the software"@en ;
-            sh:name "Nutzeranzahl-Option" ;
+            sh:name "Nutzeranzahl-Option (userCountOption)" ;
             sh:node merlot:AllowedUserCountShape ;
             sh:order 1 ;
             sh:minCount 1 ;
@@ -56,7 +56,7 @@ merlot:AllowedUserCountShape a sh:NodeShape ;
                 "Number of users up to which the usage is allowed. Set to 0 for 'unlimited'."@en ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "Option für maximale Nutzerzahl" ;
+            sh:name "Option für maximale Nutzerzahl (userCountUpTo)" ;
             sh:order 1 ;
             sh:path merlot:userCountUpTo ] ;
     sh:targetClass merlot:AllowedUserCount .
