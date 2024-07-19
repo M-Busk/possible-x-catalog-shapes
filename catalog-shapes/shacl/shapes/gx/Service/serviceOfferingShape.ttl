@@ -293,8 +293,7 @@ gx:DataAccountExportShape
         [
             sh:path gx:formatType ;
             sh:datatype xsd:string ;
-            sh:name "Format type"@en,
-            "Datenformat"@de ;
+            sh:name "Datenformat" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:pattern "^\\w+/[-+.\\w]+$" ;
