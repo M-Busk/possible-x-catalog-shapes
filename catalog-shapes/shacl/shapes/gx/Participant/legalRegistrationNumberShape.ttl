@@ -25,25 +25,6 @@ gx:legalRegistrationNumberShape
     a sh:NodeShape ;
     sh:targetClass gx:legalRegistrationNumber ;
     sh:message "At least one of vatID, EORI or leiCode must be defined." ;
-    # taxID and EUID are NOT supported by Tagus Notary
-    #sh:property
-    #    [
-    #        sh:path gx:taxID ;
-    #        sh:maxCount 1 ;  # added by MERLOT
-    #        sh:datatype xsd:string ;
-    #        sh:minLength 3 ;
-    #        sh:name "Steuernummer" ;
-    #        sh:order 3 ;
-    #    ] ;
-    #sh:property
-    #    [
-    #        sh:path gx:EUID ;
-    #        sh:maxCount 1 ;  # added by MERLOT
-    #        sh:datatype xsd:string ;
-    #        sh:minLength 3 ;
-    #        sh:name "EUID" ;
-    #        sh:order 1 ;
-    #    ] ;
     sh:property
         [
             sh:path gx:EORI ;
@@ -73,13 +54,6 @@ gx:legalRegistrationNumberShape
         ] ;
     sh:or
         (
-            #[
-            #    sh:path gx:taxID ;
-            #    sh:minCount 1 ;
-            #] [
-            #      sh:path gx:EUID ;
-            #      sh:minCount 1 ;
-            #  ] 
             [
                     sh:path gx:EORI ;
                     sh:minCount 1 ;
