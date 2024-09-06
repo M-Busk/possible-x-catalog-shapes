@@ -21,7 +21,7 @@ gx:PhysicalResourceShape a sh:NodeShape ;
             sh:path gx:description
         ],
         [
-            sh:class gx:LegalParticipant ;
+            #sh:class gx:LegalParticipant ;
             sh:description "A list of resolvable links to Gaia-X Credentials of participant manufacturing the resource." ;
             sh:name "manufactured by" ;
             sh:nodeKind sh:IRI ;
@@ -32,7 +32,8 @@ gx:PhysicalResourceShape a sh:NodeShape ;
             sh:description
                 "A resolvable link of resources related to the resource and that can exist independently of it." ;
             sh:name "aggregation of" ;
-            sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] ) ;
+            sh:nodeKind sh:IRI ;
+            #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] ) ;
             sh:order 5 ;
             sh:path gx:aggregationOf
         ],
@@ -52,7 +53,7 @@ gx:PhysicalResourceShape a sh:NodeShape ;
             sh:path gx:location
         ],
         [
-            sh:class gx:LegalParticipant ;
+            #sh:class gx:LegalParticipant ;
             sh:description "A list of resolvable links to Gaia-X Credentials of participant owning the resource." ;
             sh:name "owned by" ;
             sh:nodeKind sh:IRI ;
@@ -60,7 +61,7 @@ gx:PhysicalResourceShape a sh:NodeShape ;
             sh:path gx:ownedBy
         ],
         [
-            sh:class gx:LegalParticipant ;
+            #sh:class gx:LegalParticipant ;
             sh:description
                 "A list of resolvable links to Gaia-X Credentials of participants maintaining the resource in operational condition and thus having physical access to it." ;
             sh:minCount 1 ;

@@ -13,7 +13,7 @@ gx:InstantiatedVirtualResourceShape a sh:NodeShape ;
     sh:name "Instantiated Virtual Resource" ;
     sh:property
         [
-            sh:class gx:LegalParticipant ;
+            #sh:class gx:LegalParticipant ;
             sh:description
                 "A list of participant maintaining the resource in operational condition." ;
             sh:minCount 1 ;
@@ -28,7 +28,8 @@ gx:InstantiatedVirtualResourceShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:name "hosted on" ;
-            sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [ sh:class gx:DataResource ] [ sh:class gx:SoftwareResource ]) ;
+            sh:nodeKind sh:IRI ;
+            #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [ sh:class gx:DataResource ] [ sh:class gx:SoftwareResource ]) ;
             sh:order 1 ;
             sh:path gx:hostedOn
         ],
@@ -38,12 +39,13 @@ gx:InstantiatedVirtualResourceShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:name "instance of" ;
-            sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:DataResource ] [ sh:class gx:SoftwareResource ]) ;
+            sh:nodeKind sh:IRI ;
+            #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:DataResource ] [ sh:class gx:SoftwareResource ]) ;
             sh:order 2 ;
             sh:path gx:instanceOf
         ],
         [
-            sh:class gx:LegalParticipant ;
+            #sh:class gx:LegalParticipant ;
             sh:description
                 "A list of participant with contractual relation with the resource." ;
             sh:name "tenant owned by" ;
@@ -52,18 +54,19 @@ gx:InstantiatedVirtualResourceShape a sh:NodeShape ;
             sh:path gx:tenantOwnedBy
         ],
         [
-            sh:class gx:ServiceAccessPoint ;
+            #sh:class gx:ServiceAccessPoint ;
             sh:description
                 "A list of Service Access Point which can be an endpoint as a mean to access and interact with the resource." ;
             sh:minCount 1 ;
             sh:name "service access point" ;
-            sh:nodeKind sh:IRI ;
+            #sh:nodeKind sh:IRI ;
+            sh:node gx:ServiceAccessPointShape ;
             sh:order 4 ;
             sh:path gx:serviceAccessPoint
         ];
     sh:targetClass gx:InstantiatedVirtualResource .
 
-gx:ServiceAccessPoint a sh:NodeShape ;
+gx:ServiceAccessPointShape a sh:NodeShape ;
     sh:closed false ;
     sh:description
         "A service access point is an identifying label for network endpoints used in the OSI model. The format below doesn’t represent all possible service access point types." ;
