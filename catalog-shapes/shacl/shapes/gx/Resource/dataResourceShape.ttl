@@ -40,7 +40,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description
                 "A resolvable link of resources related to the resource and that can exist independently of it." ;
             sh:name "aggregation of" ;
-            sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [sh:class gx:DataResource] ) ;
+            sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] ) ;
             sh:order 3 ;
             sh:path gx:aggregationOf
         ],
