@@ -23,6 +23,5 @@ RUN apk add --no-cache git maven &&\
 FROM eclipse-temurin:17-jre-alpine
 COPY --from=build /sd-creation-wizard-api/target/creation-wizard-api*.jar /opt/creation-wizard-api.jar
 COPY catalog-shapes/shacl/shapes/gx/ /shapes/gx/
-COPY catalog-shapes/shacl/shapes/merlot/ /shapes/merlot/
 
 ENTRYPOINT ["java", "-jar","/opt/creation-wizard-api.jar"]

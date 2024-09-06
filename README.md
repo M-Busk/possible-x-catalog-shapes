@@ -1,7 +1,7 @@
-# MERLOT XFSC FC Shapes
-This repository contains the XFSC Federated Catalogue schemas for service offerings and participants that are used in the MERLOT marketplace.
+# POSSIBLE Wizard Shapes
+This repository contains the XFSC Self-Description Wizard schemas for service offerings and participants that are used in the POSSIBLE project.
 
-It also contains the necessary build files to build the catalogue as well as the XFSC Self-Description Wizard API with these shapes pre-loaded.
+It contains the necessary build files to build the XFSC Self-Description Wizard API with these shapes pre-loaded.
 
 ## Structure
 
@@ -10,7 +10,5 @@ It also contains the necessary build files to build the catalogue as well as the
 │   ├── ontology                    # ontology files for the catalog
 │   ├── shapes                      # shape files for the catalog
 │   │   ├── gx                      # shapes based on Gaia-X (Tagus + partially Loire)
-│   │   ├── merlot                  # merlot-specific shapes based on the Gaia-X v22.10 shapes
-├── gxfs-catalog                    # build files for the XFSC Federated Catalogue
 ├── sd-creation-wizard-api          # XFSC Self-Description Wizard API
 ```
