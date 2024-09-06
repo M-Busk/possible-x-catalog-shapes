@@ -68,7 +68,7 @@ gx:ServiceOfferingShape
             sh:path gx:termsAndConditions ;
             sh:name "terms & conditions"@en,
             "Serviceangebotspezifische Geschäftsbedingungen"@de ;
-            sh:minCount 2 ; # set to 2 instead of 1 by MERLOT
+            sh:minCount 1 ;
             sh:description
                 "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
                 "Geschäftsbedingungen zu diesem Angebot."@de ;
