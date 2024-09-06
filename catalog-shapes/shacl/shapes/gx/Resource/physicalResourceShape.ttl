@@ -6,7 +6,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-gx:PhysicalResource a sh:NodeShape ;
+gx:PhysicalResourceShape a sh:NodeShape ;
     sh:closed false ;
     sh:description
         "A Physical resource is, but not limited to, a datacenter, a bare-metal service, a warehouse, a plant. Those are entities that have a weight and position in physical space." ;

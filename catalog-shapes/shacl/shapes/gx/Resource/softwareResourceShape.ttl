@@ -6,7 +6,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-gx:SoftwareResource a sh:NodeShape ;
+gx:SoftwareResourceShape a sh:NodeShape ;
     sh:closed false ;
     sh:description
         "It represents static data in any form and necessary information such as dataset, configuration file, license, keypair, an AI model, neural network weights, etc." ;

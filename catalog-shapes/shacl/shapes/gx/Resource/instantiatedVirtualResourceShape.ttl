@@ -6,7 +6,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-gx:InstantiatedVirtualResource a sh:NodeShape ;
+gx:InstantiatedVirtualResourceShape a sh:NodeShape ;
     sh:closed false ;
     sh:description
         "An Instantiated Virtual Resource is an instance from a Virtual Resource, and is a running resource exposing endpoints such as, and not limited to, a running process, an online API, a network connection, a virtual machine, a container, an operating system. " ;
