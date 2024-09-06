@@ -155,17 +155,17 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:or ( [ sh:class gx:LegalParticipant ] [ sh:datatype xsd:string ] ) ;
             sh:order 0 ;
             sh:path gx:copyrightOwnedBy
-        ],
-        [
-            sh:class gx:LegalParticipant ;
-            sh:description "a resolvable link to the participant self-description legally enabling the data usage." ;
-            sh:name "produced by" ;
-            sh:nodeKind sh:IRI ;
-            sh:minCount 1;
-            sh:maxCount 1;
-            sh:order 2 ;
-            sh:path gx:producedBy
         ] ;
+        #[
+        #    sh:class gx:LegalParticipant ;
+        #    sh:description "a resolvable link to the participant self-description legally enabling the data usage." ;
+        #    sh:name "produced by" ;
+        #    sh:nodeKind sh:IRI ;
+        #    sh:minCount 1;
+        #    sh:maxCount 1;
+        #    sh:order 2 ;
+        #    sh:path gx:producedBy
+        #] ;
         #[
         #    sh:class gx:ServiceOffering ;
         #    sh:description "A resolvable link to the data exchange component that exposes the data resource." ;
