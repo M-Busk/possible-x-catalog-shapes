@@ -36,8 +36,30 @@ gx:ServiceOfferingShape
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
         ] ; # TODO add alternativePath to support all type of Participant
-    sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
-    sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
+    #sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
+    #sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
+    sh:property
+        [   
+            sh:path gx:aggregationOf ;
+            sh:name "aggregation of"@en,
+            "Zusammenstellung von"@de ;
+            sh:description
+                "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
+                "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+            sh:minCount 0 ;
+            sh:nodeKind sh:IRI ;
+        ] ;
+    sh:property
+        [   
+            sh:path gx:dependsOn ;
+            sh:name "depends on"@en,
+            "Abhängig von"@de ;
+            sh:description
+                "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
+                "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+            sh:minCount 0 ;
+            sh:nodeKind sh:IRI ;
+        ] ;
     sh:property
         [
             sh:path gx:termsAndConditions ;
@@ -184,56 +206,56 @@ gx:ServiceOfferingShape
         #    sh:path gx:keyword 
         #] .
 
-gx:dependsOnExists
-    sh:path gx:dependsOn ;
-    sh:name "depends on"@en,
-    "Abhängig von"@de ;
-    sh:description
-        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
-        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
-    sh:qualifiedMinCount 1 ;
-.
-
-gx:dependsOnNotExists
-    sh:path gx:dependsOn ;  
-    sh:name "depends on"@en,
-    "Abhängig von"@de ;
-    sh:description
-        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
-        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-    sh:maxCount 0 ;
-.
-
-gx:aggregationOfExists
-    sh:path gx:aggregationOf ;
-    sh:name "aggregation of"@en,
-    "Zusammenstellung von"@de ;
-    sh:description
-        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
-        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-    sh:minCount 1 ;
-    sh:qualifiedValueShape [sh:or
-        (
-            [ sh:class gx:PhysicalResource ] 
-            [ sh:class gx:VirtualResource ] 
-            [ sh:class gx:DataResource ]
-            [ sh:class gx:SoftwareResource]
-        )] ;
-    sh:qualifiedMinCount 1 ;
-.
-
-gx:aggregationOfNotExists
-    sh:path gx:aggregationOf ;  
-    sh:name "aggregation of"@en,
-    "Zusammenstellung von"@de ;
-    sh:description
-        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
-        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-    sh:maxCount 0 ;
-.
+#gx:dependsOnExists
+#    sh:path gx:dependsOn ;
+#    sh:name "depends on"@en,
+#    "Abhängig von"@de ;
+#    sh:description
+#        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
+#        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+#    sh:minCount 1 ;
+#    sh:nodeKind sh:IRI ;
+#    sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
+#    sh:qualifiedMinCount 1 ;
+#.
+#
+#gx:dependsOnNotExists
+#    sh:path gx:dependsOn ;  
+#    sh:name "depends on"@en,
+#    "Abhängig von"@de ;
+#    sh:description
+#        "a resolvable link to the service offering self-description related to the service and that can exist independently of it."@en,
+#        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+#    sh:maxCount 0 ;
+#.
+#
+#gx:aggregationOfExists
+#    sh:path gx:aggregationOf ;
+#    sh:name "aggregation of"@en,
+#    "Zusammenstellung von"@de ;
+#    sh:description
+#        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
+#        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+#    sh:minCount 1 ;
+#    sh:qualifiedValueShape [sh:or
+#        (
+#            [ sh:class gx:PhysicalResource ] 
+#            [ sh:class gx:VirtualResource ] 
+#            [ sh:class gx:DataResource ]
+#            [ sh:class gx:SoftwareResource]
+#        )] ;
+#    sh:qualifiedMinCount 1 ;
+#.
+#
+#gx:aggregationOfNotExists
+#    sh:path gx:aggregationOf ;  
+#    sh:name "aggregation of"@en,
+#    "Zusammenstellung von"@de ;
+#    sh:description
+#        "a resolvable link to the resources self-description related to the service and that can exist independently of it."@en,
+#        "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+#    sh:maxCount 0 ;
+#.
 
 gx:SOTermsAndConditionsShape
     a sh:NodeShape ;
