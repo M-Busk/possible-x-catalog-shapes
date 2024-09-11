@@ -36,34 +36,35 @@ gx:ServiceOfferingShape
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
         ],
-        [   
-            sh:path gx:aggregationOf ;
-            sh:name "Aggregation of"@en;
-            #"Zusammenstellung von"@de ;
-            sh:description
-                "A resolvable link to the resources self-description related to the service and that can exist independently of it."@en;
-            #    "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-            sh:minCount 0 ;
-            # sh:qualifiedValueShape [sh:or
-            #(
-            #[ sh:class gx:PhysicalResource ] 
-            #[ sh:class gx:VirtualResource ] 
-            #[ sh:class gx:DataResource ]
-            #[ sh:class gx:SoftwareResource]
-            #)] ;
-            sh:nodeKind sh:IRI ;
-        ],
-        [   
-            sh:path gx:dependsOn ;
-            sh:name "Depends on"@en;
-            #"Abhängig von"@de ;
-            sh:description
-                "A resolvable link to the service offering self-description related to the service and that can exist independently of it."@en;
-           #     "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-            sh:minCount 0 ;
-            # sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
-            sh:nodeKind sh:IRI ;
-        ],
+        # Commented as it's optional and at the moment not needed by POSSIBLE
+        #[   
+        #    sh:path gx:aggregationOf ;
+        #    sh:name "Aggregation of"@en;
+        #    #"Zusammenstellung von"@de ;
+        #    sh:description
+        #        "A resolvable link to the resources self-description related to the service and that can exist independently of it."@en;
+        #    #    "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+        #    sh:minCount 0 ;
+        #    # sh:qualifiedValueShape [sh:or
+        #    #(
+        #    #[ sh:class gx:PhysicalResource ] 
+        #    #[ sh:class gx:VirtualResource ] 
+        #    #[ sh:class gx:DataResource ]
+        #    #[ sh:class gx:SoftwareResource]
+        #    #)] ;
+        #    sh:nodeKind sh:IRI ;
+        #],
+        #[   
+        #    sh:path gx:dependsOn ;
+        #    sh:name "Depends on"@en;
+        #    #"Abhängig von"@de ;
+        #    sh:description
+        #        "A resolvable link to the service offering self-description related to the service and that can exist independently of it."@en;
+        #   #     "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+        #    sh:minCount 0 ;
+        #    # sh:qualifiedValueShape [sh:class gx:ServiceOffering] ;
+        #    sh:nodeKind sh:IRI ;
+        #],
         [
             sh:path gx:termsAndConditions ;
             sh:name "Terms & Conditions"@en;
