@@ -17,7 +17,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description "A free text description of the entity." ;
             sh:maxCount 1 ;
             sh:name "Description" ;
-            sh:order 5 ;
+            sh:order 4 ;
             sh:path gx:description
         ],
         [
@@ -25,7 +25,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description "A human readable name of the entity." ;
             sh:maxCount 1 ;
             sh:name "Name" ;
-            sh:order 4 ;
+            sh:order 3 ;
             sh:path gx:name
         ],
         [
@@ -34,18 +34,18 @@ gx:DataResourceShape a sh:NodeShape ;
                 "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the VirtualResource, the  policy should express a simple default: allow intent" ;
             sh:minCount 1 ;
             sh:name "Policy" ;
-            sh:order 2 ;
+            sh:order 10 ;
             sh:path gx:policy
         ],
-        [
-            sh:description
-                "A resolvable link of resources related to the resource and that can exist independently of it." ;
-            sh:name "Aggregation of" ;
-            sh:nodeKind sh:IRI ;
-            #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [sh:class gx:DataResource] ) ;
-            sh:order 3 ;
-            sh:path gx:aggregationOf
-        ],
+        #[
+        #    sh:description
+        #        "A resolvable link of resources related to the resource and that can exist independently of it." ;
+        #    sh:name "Aggregation of" ;
+        #    sh:nodeKind sh:IRI ;
+        #    #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [sh:class gx:DataResource] ) ;
+        #    sh:order  11;
+        #    sh:path gx:aggregationOf
+        #],
         [
             sh:datatype xsd:string ;
             sh:description "A list of SPDX identifiers or URL to document." ;
@@ -147,7 +147,7 @@ gx:DataResourceShape a sh:NodeShape ;
                             ) ;
             #        ] [ sh:datatype xsd:string ]
             #    ) ;
-            sh:order 1 ;
+            sh:order 5 ;
             sh:name "License" ;
             sh:path gx:license
         ],
@@ -158,7 +158,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Copyright owned by" ;
             sh:nodeKind sh:IRI ;
             #sh:or ( [ sh:class gx:LegalParticipant ] [ sh:datatype xsd:string ] ) ;
-            sh:order 0 ;
+            sh:order 1 ;
             sh:path gx:copyrightOwnedBy
         ],
         [
@@ -175,6 +175,7 @@ gx:DataResourceShape a sh:NodeShape ;
             #sh:class gx:ServiceOffering ;
             sh:description "A resolvable link to the data exchange component that exposes the data resource." ;
             sh:minCount 1 ;
+            sh:order 7 ;
             sh:name "Exposed through" ;
             sh:nodeKind sh:IRI ;
             sh:path gx:exposedThrough
@@ -185,6 +186,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Obsolete Date Time" ;
             sh:minCount 0 ;
             sh:maxCount 1 ;
+            sh:order 8 ;
             sh:path gx:obsoleteDateTime
         ],
         [
@@ -193,6 +195,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Expiration Date Time" ;
             sh:minCount 0 ;
             sh:maxCount 1 ;
+            sh:order 9 ;
             sh:path gx:expirationDateTime
         ],
         [
@@ -201,6 +204,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Contains PII" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
+            sh:order 6;
             sh:path gx:containsPII
         ] ;
     sh:targetClass gx:DataResource .
