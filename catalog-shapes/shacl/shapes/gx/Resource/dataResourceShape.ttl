@@ -16,7 +16,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:datatype xsd:string ;
             sh:description "A free text description of the entity." ;
             sh:maxCount 1 ;
-            sh:name "description" ;
+            sh:name "Description" ;
             sh:order 5 ;
             sh:path gx:description
         ],
@@ -24,7 +24,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:datatype xsd:string ;
             sh:description "A human readable name of the entity." ;
             sh:maxCount 1 ;
-            sh:name "name" ;
+            sh:name "Name" ;
             sh:order 4 ;
             sh:path gx:name
         ],
@@ -33,13 +33,14 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description
                 "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the VirtualResource, the  policy should express a simple default: allow intent" ;
             sh:minCount 1 ;
+            sh:name "Policy" ;
             sh:order 2 ;
             sh:path gx:policy
         ],
         [
             sh:description
                 "A resolvable link of resources related to the resource and that can exist independently of it." ;
-            sh:name "aggregation of" ;
+            sh:name "Aggregation of" ;
             sh:nodeKind sh:IRI ;
             #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [sh:class gx:DataResource] ) ;
             sh:order 3 ;
@@ -147,13 +148,14 @@ gx:DataResourceShape a sh:NodeShape ;
             #        ] [ sh:datatype xsd:string ]
             #    ) ;
             sh:order 1 ;
+            sh:name "License" ;
             sh:path gx:license
         ],
         [
             sh:description
                 "A list of copyright owners either as a free form string or as resolvable link to Gaia-X Credential of participants. A copyright owner is a person or organization that has the right to exploit the resource. Copyright owner does not necessarily refer to the author of the resource, who is a natural person and may differ from copyright owner." ;
             sh:minCount 1 ;
-            sh:name "copyright owned by" ;
+            sh:name "Copyright owned by" ;
             sh:nodeKind sh:IRI ;
             #sh:or ( [ sh:class gx:LegalParticipant ] [ sh:datatype xsd:string ] ) ;
             sh:order 0 ;
@@ -161,8 +163,8 @@ gx:DataResourceShape a sh:NodeShape ;
         ],
         [
             #sh:class gx:LegalParticipant ;
-            sh:description "a resolvable link to the participant self-description legally enabling the data usage." ;
-            sh:name "produced by" ;
+            sh:description "A resolvable link to the participant self-description legally enabling the data usage." ;
+            sh:name "Produced by" ;
             sh:nodeKind sh:IRI ;
             sh:minCount 1;
             sh:maxCount 1;
@@ -173,22 +175,22 @@ gx:DataResourceShape a sh:NodeShape ;
             #sh:class gx:ServiceOffering ;
             sh:description "A resolvable link to the data exchange component that exposes the data resource." ;
             sh:minCount 1 ;
-            sh:name "exposed through" ;
+            sh:name "Exposed through" ;
             sh:nodeKind sh:IRI ;
             sh:path gx:exposedThrough
         ],
         [
             sh:datatype xsd:dateTime ;
-            sh:description "date time in ISO 8601 format after which data is obsolete." ;
-            sh:name "obsolete date time" ;
+            sh:description "Date time in ISO 8601 format after which data is obsolete." ;
+            sh:name "Obsolete Date Time" ;
             sh:minCount 0 ;
             sh:maxCount 1 ;
             sh:path gx:obsoleteDateTime
         ],
         [
             sh:datatype xsd:dateTime ;
-            sh:description "date time in ISO 8601 format after which data is expired and shall be deleted." ;
-            sh:name "expiration date time" ;
+            sh:description "Date time in ISO 8601 format after which data is expired and shall be deleted." ;
+            sh:name "Expiration Date Time" ;
             sh:minCount 0 ;
             sh:maxCount 1 ;
             sh:path gx:expirationDateTime
@@ -196,7 +198,7 @@ gx:DataResourceShape a sh:NodeShape ;
         [
             sh:datatype xsd:boolean ;
             sh:description "Whether the service contains Personal Identifiable Informations." ;
-            sh:name "contains PII" ;
+            sh:name "Contains PII" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:path gx:containsPII
