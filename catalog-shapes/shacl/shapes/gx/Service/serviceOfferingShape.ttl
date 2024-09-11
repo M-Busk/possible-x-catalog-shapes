@@ -74,7 +74,7 @@ gx:ServiceOfferingShape
                 "A resolvable link to the service offering self-description related to the service and that can exist independently of it."@en;
             #    "Geschäftsbedingungen zu diesem Angebot."@de ;
             sh:node gx:SOTermsAndConditionsShape ;
-            sh:order 6 ;
+            sh:order 5 ;
         ],
         [
             sh:path gx:policy ;
@@ -82,10 +82,10 @@ gx:ServiceOfferingShape
             #"Police"@de ;
             sh:minCount 1 ;
             sh:description
-                "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …)."@en;
+                "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …). If there is no specified usage policy constraints, the policy should express a simple default: allow intent"@en;
             #    "Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
             sh:datatype xsd:string ;
-            sh:order 4;
+            sh:order 6;
         ],
         [
             sh:path gx:dataProtectionRegime ;
@@ -107,7 +107,7 @@ gx:ServiceOfferingShape
             sh:description "A list of methods to export data from your user’s account out of the service."@en;
             #"Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
             sh:node gx:DataAccountExportShape ;
-            sh:order 5 ;
+            sh:order 4 ;
         ],
         [   sh:datatype xsd:string ;
             sh:description "A human readable name of the entity."@en;

@@ -31,7 +31,7 @@ gx:DataResourceShape a sh:NodeShape ;
         [
             sh:datatype xsd:string ;
             sh:description
-                "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the VirtualResource, the  policy should express a simple default: allow intent" ;
+                "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the Data Resource, the policy should express a simple default: allow intent" ;
             sh:minCount 1 ;
             sh:name "Policy" ;
             sh:order 10 ;
