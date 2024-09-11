@@ -36,10 +36,7 @@ gx:ServiceOfferingShape
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
         ],
-        sh:or ( [ sh:property gx:aggregationOfExists ] [ sh:property gx:aggregationOfNotExists ] ) ;
-        sh:or ( [ sh:property gx:dependsOnExists ] [ sh:property gx:dependsOnNotExists ] ) ;
-        # Commented out as it's optional and at the moment not needed by POSSIBLE to be shown in the UI mask
-        # The two lines above the comment are added instead
+        # Commented as it's optional and at the moment not needed by POSSIBLE
         #[   
         #    sh:path gx:aggregationOf ;
         #    sh:name "Aggregation of"@en;
