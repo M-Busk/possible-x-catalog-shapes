@@ -202,7 +202,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:datatype xsd:boolean ;
             sh:description "Whether the service contains Personal Identifiable Informations." ;
             sh:name "Contains PII" ;
-            sh:minCount 1 ;
+            #sh:minCount 1 ; Commented out because of the wizard
             sh:maxCount 1 ;
             sh:order 6;
             sh:path gx:containsPII
