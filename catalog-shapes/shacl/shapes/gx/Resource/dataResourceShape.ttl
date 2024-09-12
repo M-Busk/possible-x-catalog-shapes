@@ -204,9 +204,6 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Contains PII" ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
-            sh:in (
-                true false
-            );
             sh:order 6;
             sh:path gx:containsPII
         ] ;
