@@ -17,7 +17,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description "A free text description of the entity." ;
             sh:maxCount 1 ;
             sh:name "Description" ;
-            sh:order 4 ;
+            sh:order 5 ;
             sh:path gx:description
         ],
         [
@@ -25,7 +25,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description "A human readable name of the entity." ;
             sh:maxCount 1 ;
             sh:name "Name" ;
-            sh:order 3 ;
+            sh:order 4 ;
             sh:path gx:name
         ],
         [
@@ -34,16 +34,17 @@ gx:DataResourceShape a sh:NodeShape ;
                 "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the Data Resource, the policy should express a simple default: allow intent" ;
             sh:minCount 1 ;
             sh:name "Policy" ;
-            sh:order 10 ;
+            sh:order 2 ;
             sh:path gx:policy
         ],
+        # Commented out as it's optional and at the moment not needed by POSSIBLE
         #[
         #    sh:description
         #        "A resolvable link of resources related to the resource and that can exist independently of it." ;
         #    sh:name "Aggregation of" ;
         #    sh:nodeKind sh:IRI ;
         #    #sh:or ( [ sh:class gx:VirtualResource ] [ sh:class gx:PhysicalResource ] [sh:class gx:DataResource] ) ;
-        #    sh:order  11;
+        #    sh:order  3;
         #    sh:path gx:aggregationOf
         #],
         [
@@ -147,7 +148,7 @@ gx:DataResourceShape a sh:NodeShape ;
                             ) ;
             #        ] [ sh:datatype xsd:string ]
             #    ) ;
-            sh:order 5 ;
+            sh:order 1 ;
             sh:name "License" ;
             sh:path gx:license
         ],
@@ -158,7 +159,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:name "Copyright owned by" ;
             sh:nodeKind sh:IRI ;
             #sh:or ( [ sh:class gx:LegalParticipant ] [ sh:datatype xsd:string ] ) ;
-            sh:order 1 ;
+            sh:order 0 ;
             sh:path gx:copyrightOwnedBy
         ],
         [
@@ -180,31 +181,29 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:path gx:exposedThrough
         ],
-        [
-            sh:datatype xsd:dateTime ;
-            sh:description "Date time in ISO 8601 format after which data is obsolete." ;
-            sh:name "Obsolete Date Time" ;
-            sh:minCount 0 ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path gx:obsoleteDateTime
-        ],
-        [
-            sh:datatype xsd:dateTime ;
-            sh:description "Date time in ISO 8601 format after which data is expired and shall be deleted." ;
-            sh:name "Expiration Date Time" ;
-            sh:minCount 0 ;
-            sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path gx:expirationDateTime
-        ],
+        # Commented out as it's optional and at the moment not needed by POSSIBLE
+        #[
+        #    sh:datatype xsd:dateTime ;
+        #    sh:description "Date time in ISO 8601 format after which data is obsolete." ;
+        #    sh:name "Obsolete Date Time" ;
+        #    sh:minCount 0 ;
+        #    sh:maxCount 1 ;
+        #    sh:path gx:obsoleteDateTime
+        #],
+        #[
+        #    sh:datatype xsd:dateTime ;
+        #    sh:description "Date time in ISO 8601 format after which data is expired and shall be deleted." ;
+        #    sh:name "Expiration Date Time" ;
+        #    sh:minCount 0 ;
+        #    sh:maxCount 1 ;
+        #    sh:path gx:expirationDateTime
+        #],
         [
             sh:datatype xsd:boolean ;
             sh:description "Whether the service contains Personal Identifiable Informations." ;
             sh:name "Contains PII" ;
-            #sh:minCount 1 ; Commented out because of the wizard
+            sh:minCount 1 ;
             sh:maxCount 1 ;
-            sh:order 6;
             sh:path gx:containsPII
         ] ;
     sh:targetClass gx:DataResource .
