@@ -28,7 +28,7 @@ gx:legalRegistrationNumberShape
     sh:property
         [
             sh:path gx:EORI ;
-            sh:maxCount 1 ;  # added by MERLOT
+            sh:maxCount 1 ;  # added by POSSIBLE
             sh:datatype xsd:string ;
             sh:minLength 3 ;
             sh:name "EORI" ;
@@ -37,19 +37,19 @@ gx:legalRegistrationNumberShape
     sh:property
         [
             sh:path gx:vatID ;
-            sh:maxCount 1 ;  # added by MERLOT
+            sh:maxCount 1 ;  # added by POSSIBLE
             sh:datatype xsd:string ;
             sh:minLength 3 ;
-            sh:name "Umsatzsteuer-Identifikationsnummer" ;
+            sh:name "VAT ID" ;
             sh:order 4 ;
         ] ;
     sh:property
         [
             sh:path gx:leiCode ;
-            sh:maxCount 1 ;  # added by MERLOT
+            sh:maxCount 1 ;  # added by POSSIBLE
             sh:datatype xsd:string ;
             sh:minLength 3 ;
-            sh:name "LEI-Code" ;
+            sh:name "LEI Code" ;
             sh:order 0 ;
         ] ;
     sh:or
