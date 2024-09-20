@@ -5,7 +5,7 @@
 px:
     a   owl:Ontology ; .
 
-px:PossibleXDataExchangeConfiguration
+px:PossibleXServiceOfferingExtension
     a		 		owl:Class;
-    rdfs:label		"PossibleXDataExchangeConfiguration"@en ;
+    rdfs:label		"PossibleXServiceOfferingExtension"@en ;
 .

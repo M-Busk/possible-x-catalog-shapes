@@ -1,15 +1,14 @@
 @prefix px: <http://w3id.org/gaia-x/possible-x#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-px:PossibleXDataExchangeConfigurationShape a sh:NodeShape ;
-    sh:targetClass px:PossibleXDataExchangeConfiguration ;
+px:PossibleXServiceOfferingExtensionShape a sh:NodeShape ;
+    sh:targetClass px:PossibleXServiceOfferingExtension ;
     sh:description
-            "A Possible-X Data Exchange Configuration contains the URL of the data exchange component that provides an asset as well as the ID of that asset."@en ;
-    sh:name "Possible-X Data Exchange Configuration" ;
+            "A Possible-X Service Offering Extension is meant to extend a Gaia-X Service Offering by Possible-X-specific attributes."@en ;
+    sh:name "Possible-X Service Offering Extension" ;
     sh:property
         [
             sh:datatype xsd:string ;
-            sh:description "An asset ID."@en ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:name "Asset ID"@en ;
@@ -17,7 +16,6 @@ px:PossibleXDataExchangeConfigurationShape a sh:NodeShape ;
         ],
         [
             sh:datatype xsd:string ;
-            sh:description "A data exchange component URL."@en ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:name "Provider URL"@en ;
