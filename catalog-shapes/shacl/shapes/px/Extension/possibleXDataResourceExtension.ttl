@@ -1,0 +1,8 @@
+@prefix px: <http://w3id.org/gaia-x/possible-x#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+px:PossibleXDataResourceExtensionShape a sh:NodeShape ;
+    sh:targetClass px:PossibleXDataResourceExtension ;
+    sh:description
+            "A Possible-X Service Offering Extension is meant to extend a Gaia-X Service Offering by Possible-X-specific attributes."@en ;
+    sh:name "Possible-X Service Offering Extension" .
