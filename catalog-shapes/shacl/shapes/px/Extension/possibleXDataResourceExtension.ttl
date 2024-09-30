@@ -4,5 +4,5 @@
 px:PossibleXDataResourceExtensionShape a sh:NodeShape ;
     sh:targetClass px:PossibleXDataResourceExtension ;
     sh:description
-            "A Possible-X Service Offering Extension is meant to extend a Gaia-X Service Offering by Possible-X-specific attributes."@en ;
-    sh:name "Possible-X Service Offering Extension" .
+            "A Possible-X Data Resource Extension is meant to extend a Gaia-X Data Resource by Possible-X-specific attributes."@en ;
+    sh:name "Possible-X Data Resource Extension" .
