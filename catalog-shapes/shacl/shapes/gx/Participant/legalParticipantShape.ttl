@@ -71,12 +71,12 @@ gx:LegalParticipantShape
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path gx:name ;
-            sh:name "Name" ;
+            sh:name "Organization Name" ;
         ],
         [   sh:datatype xsd:string ;
             sh:description  "A free text description of the entity." ;
             sh:maxCount 1 ;
-            sh:name "Description" ;
+            sh:name "Organization Description" ;
             sh:order 1 ;
             sh:path gx:description ;
 
