@@ -94,6 +94,7 @@ vcard:AddressShape a sh:NodeShape ;
             sh:order 0 ;
             sh:path gx:countryCode ;
             sh:name "Country Code" ;
+            skos:example "e.g., 'DE' for Germany" ;
         ],
         [   sh:datatype xsd:string ;
             sh:description "String of a street-address" ;
@@ -126,5 +127,6 @@ vcard:AddressShape a sh:NodeShape ;
             sh:description "an ISO 3166-2 format value is expected." ;
             sh:name "Country Subdivision Code" ;
             sh:order 1 ;
+            skos:example "e.g., 'DE-NI' for Lower Saxony in Germany" ;
         ] ;
     sh:targetClass vcard:Address .

@@ -193,7 +193,7 @@ gx:DataAccountExportShape
             sh:maxCount 1 ;
             sh:pattern "^\\w+/[-+.\\w]+$" ;
             sh:flags "i" ;
-            skos:example "z.B. 'application/json', 'text/plain', 'image/png'" ;
+            skos:example "e.g., 'application/json', 'text/plain', 'image/png'" ;
             sh:description "Type of Media Types (formerly known as MIME types) as defined by the IANA, see https://de.wikipedia.org/wiki/Internet_Media_Type ."@en;
             #"Medientyp (früher bekannt als MIME Typ) wie von der IANA definiert, z.B. 'application/json' oder 'text/plain'. siehe https://de.wikipedia.org/wiki/Internet_Media_Type ."@de ;
         ] .

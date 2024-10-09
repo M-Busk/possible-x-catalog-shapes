@@ -33,6 +33,7 @@ gx:legalRegistrationNumberShape
             sh:minLength 3 ;
             sh:name "EORI" ;
             sh:order 2 ;
+            skos:example "e.g., 'DE1234567', 'DE123456789012345'" ;
         ] ;
     sh:property
         [
@@ -42,6 +43,7 @@ gx:legalRegistrationNumberShape
             sh:minLength 3 ;
             sh:name "VAT ID" ;
             sh:order 4 ;
+            skos:example "e.g., 'DE269448547'" ;
         ] ;
     sh:property
         [
@@ -51,6 +53,7 @@ gx:legalRegistrationNumberShape
             sh:minLength 3 ;
             sh:name "LEI Code" ;
             sh:order 0 ;
+            skos:example "e.g., '391200RT75XV0TG47X87'" ;
         ] ;
     sh:or
         (
