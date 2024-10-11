@@ -36,24 +36,24 @@ gx:ServiceOfferingShape
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
         ],
-        # Commented as it's optional and at the moment not needed by POSSIBLE
-        #[   
-        #    sh:path gx:aggregationOf ;
-        #    sh:name "Aggregation of"@en;
-        #    #"Zusammenstellung von"@de ;
-        #    sh:description
-        #        "A resolvable link to the resources self-description related to the service and that can exist independently of it."@en;
-        #    #    "Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
-        #    sh:minCount 0 ;
-        #    # sh:qualifiedValueShape [sh:or
-        #    #(
-        #    #[ sh:class gx:PhysicalResource ] 
-        #    #[ sh:class gx:VirtualResource ] 
-        #    #[ sh:class gx:DataResource ]
-        #    #[ sh:class gx:SoftwareResource]
-        #    #)] ;
-        #    sh:nodeKind sh:IRI ;
-        #],
+        [
+            sh:path gx:aggregationOf ;
+            sh:name "Aggregation of"@en;
+            #"Zusammenstellung von"@de ;
+            sh:description
+                "A resolvable link to the resources self-description related to the service and that can exist independently of it."@en;
+                #"Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
+            sh:minCount 0 ;
+            # sh:qualifiedValueShape [sh:or
+            #(
+            #[ sh:class gx:PhysicalResource ]
+            #[ sh:class gx:VirtualResource ]
+            #[ sh:class gx:DataResource ]
+            #[ sh:class gx:SoftwareResource]
+            #)] ;
+            sh:nodeKind sh:IRI ;
+        ],
+        # Commented out as it's optional and at the moment not needed by POSSIBLE
         #[   
         #    sh:path gx:dependsOn ;
         #    sh:name "Depends on"@en;
@@ -72,9 +72,9 @@ gx:ServiceOfferingShape
             sh:minCount 1 ;
             sh:description
                 "A resolvable link to the service offering self-description related to the service and that can exist independently of it."@en;
-            #    "Geschäftsbedingungen zu diesem Angebot."@de ;
+                #"Geschäftsbedingungen zu diesem Angebot."@de ;
             sh:node gx:SOTermsAndConditionsShape ;
-            sh:order 5 ;
+            sh:order 6 ;
         ],
         [
             sh:path gx:policy ;
@@ -83,9 +83,9 @@ gx:ServiceOfferingShape
             sh:minCount 1 ;
             sh:description
                 "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …). If there is no specified usage policy constraints, the policy should express a simple default: allow intent"@en;
-            #    "Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
+               #"Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
             sh:datatype xsd:string ;
-            sh:order 6;
+            sh:order 4;
         ],
         [
             sh:path gx:dataProtectionRegime ;
@@ -95,7 +95,7 @@ gx:ServiceOfferingShape
             sh:in ( "GDPR2016" "LGPD2019" "PDPA2012" "CCPA2018" "VCDPA2021" ) ;
             sh:message
                 "Refer to https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes."@en;
-            #    "Siehe https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes."@de ;
+                #"Siehe https://gaia-x.gitlab.io/policy-rules-committee/trust-framework/service_and_subclasses/#service-offering Personal Data Protection Regimes."@de ;
             sh:datatype xsd:string ;
             sh:order 3 ;
         ],
@@ -107,7 +107,7 @@ gx:ServiceOfferingShape
             sh:description "A list of methods to export data from your user’s account out of the service."@en;
             #"Eine Liste von Methoden um die Daten aus dem Dienst zu exportieren"@de ;
             sh:node gx:DataAccountExportShape ;
-            sh:order 4 ;
+            sh:order 5 ;
         ],
         [   sh:datatype xsd:string ;
             sh:description "A human readable name of the entity."@en;
@@ -193,7 +193,7 @@ gx:DataAccountExportShape
             sh:maxCount 1 ;
             sh:pattern "^\\w+/[-+.\\w]+$" ;
             sh:flags "i" ;
-            skos:example "z.B. 'application/json', 'text/plain', 'image/png'" ;
+            skos:example "e.g., 'application/json', 'text/plain', 'image/png'" ;
             sh:description "Type of Media Types (formerly known as MIME types) as defined by the IANA, see https://de.wikipedia.org/wiki/Internet_Media_Type ."@en;
             #"Medientyp (früher bekannt als MIME Typ) wie von der IANA definiert, z.B. 'application/json' oder 'text/plain'. siehe https://de.wikipedia.org/wiki/Internet_Media_Type ."@de ;
         ] .
