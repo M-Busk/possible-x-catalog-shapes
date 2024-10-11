@@ -1,0 +1,21 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix px: <http://w3id.org/gaia-x/possible-x#> .
+
+px:
+    a   owl:Ontology ; .
+
+px:PossibleXServiceOfferingExtension
+    a		 		owl:Class;
+    rdfs:label		"PossibleXServiceOfferingExtension"@en ;
+.
+
+px:PossibleXDataResourceExtension
+    a		 		owl:Class;
+    rdfs:label		"PossibleXDataResourceExtension"@en ;
+.
+
+px:PossibleXLegalParticipantExtension
+    a		 		owl:Class;
+    rdfs:label		"PossibleXLegalParticipantExtension"@en ;
+.
