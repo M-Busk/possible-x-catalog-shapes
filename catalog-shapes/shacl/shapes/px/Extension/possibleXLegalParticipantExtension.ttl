@@ -1,8 +1,0 @@
-@prefix px: <http://w3id.org/gaia-x/possible-x#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-
-px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
-    sh:targetClass px:PossibleXLegalParticipantExtension ;
-    sh:description
-            "A Possible-X Legal Participant Extension is meant to extend a Gaia-X Legal Participant by Possible-X-specific attributes."@en ;
-    sh:name "Possible-X Legal Participant Extension" .
