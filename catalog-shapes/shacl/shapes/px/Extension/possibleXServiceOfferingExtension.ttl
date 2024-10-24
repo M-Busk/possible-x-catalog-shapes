@@ -1,5 +1,6 @@
 @prefix px: <http://w3id.org/gaia-x/possible-x#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 px:PossibleXServiceOfferingExtensionShape a sh:NodeShape ;
     sh:targetClass px:PossibleXServiceOfferingExtension ;
