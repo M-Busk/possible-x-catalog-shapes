@@ -5,4 +5,12 @@ px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
     sh:targetClass px:PossibleXLegalParticipantExtension ;
     sh:description
             "A Possible-X Legal Participant Extension is meant to extend a Gaia-X Legal Participant by Possible-X-specific attributes."@en ;
-    sh:name "Possible-X Legal Participant Extension" .
+    sh:name "Possible-X Legal Participant Extension" ;
+    sh:property
+        [
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "E-Mail Address"@en ;
+            sh:path px:mailAddress
+        ] .
