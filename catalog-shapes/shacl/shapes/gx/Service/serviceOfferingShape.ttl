@@ -44,6 +44,7 @@ gx:ServiceOfferingShape
                 "A resolvable link to the resources self-description related to the service and that can exist independently of it."@en;
                 #"Ein auflösbarer Link zu einer Self-Description eines verwandten Angebots welches unabhängig hiervon existieren kann."@de ;
             sh:minCount 0 ;
+            sh:order 4 ;
             # sh:qualifiedValueShape [sh:or
             #(
             #[ sh:class gx:PhysicalResource ]
@@ -78,14 +79,14 @@ gx:ServiceOfferingShape
         ],
         [
             sh:path gx:policy ;
-            sh:name "Policy"@en;
+            sh:name "Service Offering Policy"@en;
             #"Police"@de ;
             sh:minCount 1 ;
             sh:description
                 "A list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, …). If there is no specified usage policy constraints, the policy should express a simple default: allow intent"@en;
                #"Eine Liste von Policen, ausgedrückt mithilfe einer DSL (z.B. Rego oder ODRL) (Zugriffskontrolle, Drosselung, Nutzung, Speicherung, …)."@de ;
             sh:datatype xsd:string ;
-            sh:order 4;
+            sh:order 7;
         ],
         [
             sh:path gx:dataProtectionRegime ;

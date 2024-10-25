@@ -33,7 +33,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:description
                 "A  list of policy expressed using a DSL (e.g., Rego or ODRL) (access control, throttling, usage, retention, ...). If there is no specified usage policy constraints on the Data Resource, the policy should express a simple default: allow intent" ;
             sh:minCount 1 ;
-            sh:name "Policy" ;
+            sh:name "Data Resource Policy" ;
             sh:order 2 ;
             sh:path gx:policy
         ],
