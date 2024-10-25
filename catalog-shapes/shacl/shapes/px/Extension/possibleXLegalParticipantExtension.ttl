@@ -13,5 +13,6 @@ px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:maxCount 1 ;
             sh:name "E-Mail Address"@en ;
-            sh:path px:mailAddress
+            sh:path px:mailAddress ;
+            sh:description "The e-mail address is required to get registration confirmation and will be publicly accessible in the catalog."@en ;
         ] .
