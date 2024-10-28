@@ -23,6 +23,7 @@ gx:DataResourceShape a sh:NodeShape ;
         [
             sh:datatype xsd:string ;
             sh:description "A human readable name of the entity." ;
+            sh:minCount 1 ; # added by POSSIBLE
             sh:maxCount 1 ;
             sh:name "Name" ;
             sh:order 0 ;
