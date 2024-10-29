@@ -19,6 +19,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
 
 # Tagus/Loire base
 gx:ServiceOfferingShape
@@ -118,7 +119,7 @@ gx:ServiceOfferingShape
             sh:name "Name"@en;
             #"Servicename"@de ;
             sh:order 1 ;
-            sh:path gx:name 
+            sh:path schema:name 
         ],
         [   sh:datatype xsd:string ;
             sh:description "A free text description of the entity."@en;
@@ -127,7 +128,7 @@ gx:ServiceOfferingShape
             sh:name "Description"@en;
             #"Detaillierte Beschreibung des Services"@de ;
             sh:order 2 ;
-            sh:path gx:description 
+            sh:path schema:description 
         ] .
 
 gx:SOTermsAndConditionsShape

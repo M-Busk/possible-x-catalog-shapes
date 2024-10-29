@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
 
 gx:DataResourceShape a sh:NodeShape ;
     sh:closed false ;
@@ -18,7 +19,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:name "Description" ;
             sh:order 1 ;
-            sh:path gx:description
+            sh:path schema:description
         ],
         [
             sh:datatype xsd:string ;
@@ -27,7 +28,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:name "Name" ;
             sh:order 0 ;
-            sh:path gx:name
+            sh:path schema:name
         ],
         [
             sh:datatype xsd:string ;
