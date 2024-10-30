@@ -19,6 +19,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
 
 gx:LegalParticipantShape
     a sh:NodeShape ;
@@ -70,7 +71,7 @@ gx:LegalParticipantShape
             sh:minCount 1 ; # added by POSSIBLE
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path gx:name ;
+            sh:path schema:name ;
             sh:name "Organization Name" ;
         ],
         [   sh:datatype xsd:string ;
@@ -78,7 +79,7 @@ gx:LegalParticipantShape
             sh:maxCount 1 ;
             sh:name "Organization Description" ;
             sh:order 1 ;
-            sh:path gx:description ;
+            sh:path schema:description ;
 
         ] .
 

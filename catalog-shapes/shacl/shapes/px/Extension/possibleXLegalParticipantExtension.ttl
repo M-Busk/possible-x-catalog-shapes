@@ -1,8 +1,19 @@
 @prefix px: <http://w3id.org/gaia-x/possible-x#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
     sh:targetClass px:PossibleXLegalParticipantExtension ;
     sh:description
             "A Possible-X Legal Participant Extension is meant to extend a Gaia-X Legal Participant by Possible-X-specific attributes."@en ;
-    sh:name "Possible-X Legal Participant Extension" .
+    sh:name "Possible-X Legal Participant Extension" ;
+    sh:property
+        [
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "E-Mail Address"@en ;
+            sh:path px:mailAddress ;
+            sh:description "The e-mail address is required to get registration confirmation and will be publicly accessible in the catalog."@en ;
+            sh:pattern "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$" ;
+        ] .
