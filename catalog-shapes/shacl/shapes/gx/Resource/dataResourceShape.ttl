@@ -53,6 +53,7 @@ gx:DataResourceShape a sh:NodeShape ;
             sh:datatype xsd:string ;
             sh:description "A list of SPDX identifiers or URL to document. Find SPDX identifiers here: https://spdx.org/licenses/ ." ;
             sh:minCount 1 ;
+            skos:example "e.g., 'CC-BY-SA-4.0', 'https://www.apache.org/licenses/LICENSE-2.0'" ;
             #Commented out to allow definition free text license (URLs or SPDX identifiers)
             #sh:or
             #    (
