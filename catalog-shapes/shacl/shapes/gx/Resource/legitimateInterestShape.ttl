@@ -1,0 +1,30 @@
+@prefix gx: <https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+
+gx:LegitimateInterest
+    a sh:NodeShape ;
+    sh:targetClass gx:LegitimateInterest ;
+    sh:property
+        [
+            sh:path gx:legalBasis ;
+            sh:name "Legal Basis" ;
+            sh:description "Reasons to process PII as detailed in your personal data protection regime" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string
+        ] ;
+    sh:property
+        [
+            sh:path gx:dataProtectionContact ;
+            sh:name "Data Protection Contact" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:description "An URL pointing to a contact form or an email address." ;
+            sh:datatype xsd:string
+        ] .
