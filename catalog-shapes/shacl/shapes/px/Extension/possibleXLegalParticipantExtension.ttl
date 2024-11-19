@@ -14,6 +14,6 @@ px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:name "E-Mail Address"@en ;
             sh:path px:mailAddress ;
-            sh:description "The e-mail address is required to get registration confirmation and will be publicly accessible in the catalog."@en ;
+            sh:description "The email address you enter will be published on the internet and will be visible to anyone."@en ;
             sh:pattern "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$" ;
         ] .
