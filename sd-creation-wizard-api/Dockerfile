@@ -14,15 +14,17 @@
 
 FROM maven:3-eclipse-temurin-17-alpine AS build
 
+COPY sd-creation-wizard-api/add_regex_support.patch /add_regex_support.patch
+
 RUN apk add --no-cache git maven &&\
     git clone https://gitlab.eclipse.org/eclipse/xfsc/self-description-tooling/sd-creation-wizard-api.git &&\
     cd /sd-creation-wizard-api &&\
-    git checkout 8b57ef8a88d0bc71513fd3ca15760755189fa316 &&\
+    git checkout bf7a35f8b763d3a198a8d586da93b27d61f3fc2a &&\
+    git apply /add_regex_support.patch &&\
     mvn clean package -Dmaven.test.skip=true
 
 FROM eclipse-temurin:17-jre-alpine
 COPY --from=build /sd-creation-wizard-api/target/creation-wizard-api*.jar /opt/creation-wizard-api.jar
-COPY catalog-shapes/shacl/shapes/gx/ /shapes/gx/
-COPY catalog-shapes/shacl/shapes/px/ /shapes/px/
+COPY catalog-shapes/shacl/shapes/ /shapes/
 
 ENTRYPOINT ["java", "-jar","/opt/creation-wizard-api.jar"]

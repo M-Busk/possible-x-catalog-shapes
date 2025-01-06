@@ -1,0 +1,28 @@
+diff --git a/README.md b/README.md
+index 6c118d7..a8e707e 100644
+--- a/README.md
++++ b/README.md
+@@ -196,6 +196,7 @@ The SD Creation Wizard supports many features from the [W3C Shapes Constraint La
+ - `sh:name` and `sh:description`: Human-readable text and description in natural language. Multiple languages are supported.
+ - `skos:example`: List one or more example values to make field completion more convenient for end users.
+ - `sh:or`: Basic support for logical operators.
++- `sh:pattern`: Support for regex patterns.
+ 
+ 
+ 
+diff --git a/src/main/java/eu/gaiax/sdcreationwizard/api/ConversionService.java b/src/main/java/eu/gaiax/sdcreationwizard/api/ConversionService.java
+index 6f40544..380805d 100644
+--- a/src/main/java/eu/gaiax/sdcreationwizard/api/ConversionService.java
++++ b/src/main/java/eu/gaiax/sdcreationwizard/api/ConversionService.java
+@@ -220,6 +220,11 @@ public class ConversionService {
+                 validations.add(new ConstraintOption(SH.group.getLocalName(), group));
+             }
+ 
++            var pattern = readStringProperty(propertyShape, SH.pattern);
++            if (pattern != null) {
++                validations.add(new ConstraintOption(SH.pattern.getLocalName(), pattern));
++            }
++
+             //readStringProperty(propertyShape, SH.description)
+             // reads string property
+             Map<String, String> description = readMultiLanguageDescriptionProperty(propertyShape, SH.description);
