@@ -92,7 +92,7 @@ vcard:AddressShape a sh:NodeShape ;
         [   sh:description "Country code in ISO 3166-1 alpha2, alpha-3 or numeric format." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:pattern "^([A-Z]{2}|[A-Z]{3}|\d{3})$" ;
+            sh:pattern "^([A-Z]{2}|[A-Z]{3}|[0-9]{3})$" ;
             sh:order 0 ;
             sh:path gx:countryCode ;
             sh:name "Country Code" ;
