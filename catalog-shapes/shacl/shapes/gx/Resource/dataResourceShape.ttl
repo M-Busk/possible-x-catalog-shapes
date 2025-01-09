@@ -162,7 +162,7 @@ gx:DataResourceShape a sh:NodeShape ;
                 "A list of copyright owners either as a free form string or as resolvable link to Gaia-X Credential of participants. A copyright owner is a person or organization that has the right to exploit the resource. Copyright owner does not necessarily refer to the author of the resource, who is a natural person and may differ from copyright owner." ;
             sh:minCount 1 ;
             sh:name "Copyright owned by" ;
-            sh:datatype xsd:string ; # added by POSSIBLE
+            sh:nodeKind sh:IRI ;
             #sh:or ( [ sh:class gx:LegalParticipant ] [ sh:datatype xsd:string ] ) ;
             sh:order 2 ;
             sh:path gx:copyrightOwnedBy
