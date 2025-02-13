@@ -15,5 +15,5 @@ px:PossibleXLegalParticipantExtensionShape a sh:NodeShape ;
             sh:name "E-Mail Address"@en ;
             sh:path px:mailAddress ;
             sh:description "The email address you enter will be published on the internet and will be visible to anyone."@en ;
-            sh:pattern "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$" ;
+            sh:pattern "^((?!\\.)[\\w\\-.]*[^.])(@[\\w-]+)(\\.\\w+(\\.\\w+)?\\w)$" ;
         ] .
