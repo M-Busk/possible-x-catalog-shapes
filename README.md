@@ -1,7 +1,9 @@
-# POSSIBLE Wizard Shapes
-This repository contains the XFSC Self-Description Wizard schemas for service offerings and participants that are used in the POSSIBLE project.
+# POSSIBLE-X Wizard Shapes
 
-It contains the necessary build files to build the XFSC Self-Description Wizard API with these shapes pre-loaded.
+This repository contains the XFSC Self-Description Wizard schemas for service offerings and participants that are used
+in the POSSIBLE-X project.
+
+It contains the necessary build files to build the XFSC Self-Description Wizard API with these shapes preloaded.
 
 ## Structure
 
@@ -10,5 +12,6 @@ It contains the necessary build files to build the XFSC Self-Description Wizard 
 │   ├── ontology                    # ontology files for the catalog
 │   ├── shapes                      # shape files for the catalog
 │   │   ├── gx                      # shapes based on Gaia-X (Tagus + partially Loire)
+│   │   └── px                      # POSSIBLE-X shapes that extend the respective Gaia-X shapes
 ├── sd-creation-wizard-api          # XFSC Self-Description Wizard API
 ```
